@@ -134,7 +134,7 @@
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/MCMC之蒙特卡罗方法/MCMC之蒙特卡罗方法图片03.png">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/MCMC之蒙特卡罗方法/MCMC之蒙特卡罗方法图片04.png">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/MCMC之蒙特卡罗方法/推广.png">
-<meta property="og:updated_time" content="2018-12-01T15:45:10.250Z">
+<meta property="og:updated_time" content="2018-12-15T08:00:28.309Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MCMC之蒙特卡罗方法">
 <meta name="twitter:description" content="1.MCMC简介马尔可夫链蒙克卡罗(Markov Chain Monte Carlo,MCMC)是一种随机采样方法，在机器学习、深度学习及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础，例如受限玻尔兹曼机(RBM)便是用MCMC来做一些复杂算法的近似求解。在具体讲解什么是MCMC之前，我们先看看MCMC可以解决什么样的问题，为什么需要MCMC方法。 2. 为什么需要MCMC?假如我们需">
@@ -539,7 +539,8 @@ Z_1 = \sqrt{-2lnX_1} cos(2\pi X_2)</script><script type="math/tex; mode=display"
 Z_2 = \sqrt{-2lnX_1} sin(2\pi X_2)</script><p>其他的一些常见的连续分布，比如t分布,F分布,Beta分布,Gamma分布等，都可以通过类似的方式从uniform(0,1)得到的样本转换得到。不过很多时候，我们<strong>x的概率分布不是常见的分布</strong>，这意味着我们无法方便的得到这些概率分布的样本集，那这个问题怎么解决呢？</p>
 <h3 id="5-接受-拒绝采样"><a href="#5-接受-拒绝采样" class="headerlink" title="5.接受-拒绝采样"></a>5.接受-拒绝采样</h3><p>对于概率分布不是常见的分布，一个可行的方法是采用接受-拒绝采样来得到该分布的样本。既然p(x)太复杂在程序中没法直接采样，那么我们设定一个可采样的分布q(x)，比如高斯分布，然后按照一定的方法拒绝某些样本，以达到接近p(x)分布的目的，其中q(x)叫做建议分布(proposal distribution)。</p>
 <p><img src="/2018/11/24/MCMC之蒙特卡罗方法/MCMC之蒙特卡罗方法图片04.png" alt="MCMC之蒙特卡罗方法图片04"></p>
-<p>具体采样过程为，设定一个方便采样的常用概率分布q(x)以及一个常量k，使得p(x)总在kq(x)的下方，即$k<em>q(z) \ge \tilde{p}(z)$。首先从建议分布q(z)中采样得到样本z，然后从均匀分布U(0,1)中采样得到样本u，如果$u \le \frac{ \tilde{p}(z)}{c</em>q(z)}$，则接受此次采样，否则拒绝此次采样。整个过程中，我们通过一系列接受-拒绝采样的决策来达到用q(x)模拟p(x)概率分布的目的。</p>
+<p>具体采样过程为，设定一个方便采样的常用概率分布q(x)以及一个常量k，使得p(x)总在kq(x)的下方，即$k*q(z) \ge \tilde{p}(z)$。</p>
+<p>首先从建议分布q(z)中采样得到样本z，然后从均匀分布U(0,1)中采样得到样本u，如果$u \le \frac{ \tilde{p}(z)}{k*q(z)}$，则接受此次采样，否则拒绝此次采样。整个过程中，我们通过一系列接受-拒绝采样的决策来达到用q(x)模拟p(x)概率分布的目的。</p>
 <h3 id="6-蒙特卡罗方法总结"><a href="#6-蒙特卡罗方法总结" class="headerlink" title="6.蒙特卡罗方法总结"></a>6.蒙特卡罗方法总结</h3><p>使用接受-拒绝采样，可以解决一些概率分布不是常见分布的情况，然后得到采样集，最后用蒙特卡罗方法求和。但是接受-拒绝采样只能部分满足我们的情况，在很多时候我们还是很难得到概率分布的样本集，比如</p>
 <ul>
 <li>对于一些二维分布(x,y)，有些时候只能得到条件概率分布p(x|y)和p(y|x)，却很难得到二维分布p(x,y)，这时便无法采用接受拒绝采样得到其样本集。</li>
