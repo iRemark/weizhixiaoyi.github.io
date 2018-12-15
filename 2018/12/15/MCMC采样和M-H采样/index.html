@@ -130,7 +130,7 @@
 <meta property="og:description" content="在MCMC之马尔可夫链之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状态转移矩阵P。 1.马尔可夫链细致平稳条件解决平稳分布π所对应的马尔可夫链状态转移矩阵P之前，我们先看一下马尔可夫链的细致平稳条件。其定义为：如果非周期马尔可夫链的状态转移矩">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/12/15/MCMC采样和M-H采样/推广.png">
-<meta property="og:updated_time" content="2018-12-15T10:29:35.939Z">
+<meta property="og:updated_time" content="2018-12-15T10:32:55.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MCMC采样和M-H采样">
 <meta name="twitter:description" content="在MCMC之马尔可夫链之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状态转移矩阵P。 1.马尔可夫链细致平稳条件解决平稳分布π所对应的马尔可夫链状态转移矩阵P之前，我们先看一下马尔可夫链的细致平稳条件。其定义为：如果非周期马尔可夫链的状态转移矩">
@@ -532,7 +532,8 @@ P(i,j) = Q(i,j)\alpha(i,j)</script><p>从上面可以得到，目标矩阵P可�
 <li>for t=0 to n1+n2-1<ul>
 <li>从条件概率分布$Q(x|x_t)$中采样得到样本$x_*$。</li>
 <li>从均匀分布采样u ~ uniform[0, 1]。</li>
-<li>如果$u &lt; \alpha (x_t, x_<em>) = \pi(x_</em>)Q(X_<em>, x_t)$，则接受转移$x_t -&gt; x_</em>$，即$x_{t+1} = x_*$。否则不接受转移，即$t = max(t-1, 0)$。</li>
+<li>如果$u &lt; \alpha (x_t, x_<em>) = \pi(x_</em>)Q(X_<em>, x_t)$，则接受转移$x_t -&gt; x_</em>$，即$x_{t+1} = x_*$。</li>
+<li>否则不接受转移，即$t = max(t-1, 0)$。</li>
 </ul>
 </li>
 </ul>
@@ -553,7 +554,8 @@ P(i,j) = Q(i,j)\alpha(i,j)</script><p>从上面可以得到，目标矩阵P可�
 <li>for t=0 to n1+n2-1<ul>
 <li>从条件概率分布$Q(x|x_t)$中采样得到样本$x_*$。</li>
 <li>从均匀分布采样u ~ uniform[0, 1]。</li>
-<li>如果$u &lt; \alpha (x_t, x_<em>) = min\{ \frac{\pi(j)Q(j,i)}{\pi(i)Q(i,j)},1 \} $，则接受转移$x_t -&gt; x_</em>$，即$x_{t+1} = x_*$。否则不接受转移，即$t = max(t-1, 0)$。</li>
+<li>如果$u &lt; \alpha (x_t, x_<em>) = min\{ \frac{\pi(j)Q(j,i)}{\pi(i)Q(i,j)},1 \} $，则接受转移$x_t -&gt; x_</em>$，即$x_{t+1} = x_*$。</li>
+<li>否则不接受转移，即$t = max(t-1, 0)$。</li>
 </ul>
 </li>
 </ul>
