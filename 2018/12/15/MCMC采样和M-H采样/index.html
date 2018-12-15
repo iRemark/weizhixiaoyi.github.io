@@ -121,18 +121,19 @@
 
 
 
-  <meta name="description" content="title: MCMC采样和M-H采样date: 2018-12-15 16:16:08tags: [数学基础]categories: 数学统计学mathjax: true 在MCMC之马尔可夫链之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状">
+  <meta name="description" content="在MCMC之马尔可夫链之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状态转移矩阵P。 1.马尔可夫链细致平稳条件解决平稳分布π所对应的马尔可夫链状态转移矩阵P之前，我们先看一下马尔可夫链的细致平稳条件。其定义为：如果非周期马尔可夫链的状态转移矩">
+<meta name="keywords" content="数学基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="谓之小一">
+<meta property="og:title" content="MCMC采样和M-H采样">
 <meta property="og:url" content="https://weizhixiaoyi.com/2018/12/15/MCMC采样和M-H采样/index.html">
 <meta property="og:site_name" content="谓之小一">
-<meta property="og:description" content="title: MCMC采样和M-H采样date: 2018-12-15 16:16:08tags: [数学基础]categories: 数学统计学mathjax: true 在MCMC之马尔可夫链之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状">
+<meta property="og:description" content="在MCMC之马尔可夫链之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状态转移矩阵P。 1.马尔可夫链细致平稳条件解决平稳分布π所对应的马尔可夫链状态转移矩阵P之前，我们先看一下马尔可夫链的细致平稳条件。其定义为：如果非周期马尔可夫链的状态转移矩">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/12/15/MCMC采样和M-H采样/推广.png">
-<meta property="og:updated_time" content="2018-12-15T10:26:00.958Z">
+<meta property="og:updated_time" content="2018-12-15T10:29:35.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谓之小一">
-<meta name="twitter:description" content="title: MCMC采样和M-H采样date: 2018-12-15 16:16:08tags: [数学基础]categories: 数学统计学mathjax: true 在MCMC之马尔可夫链之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状">
+<meta name="twitter:title" content="MCMC采样和M-H采样">
+<meta name="twitter:description" content="在MCMC之马尔可夫链之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状态转移矩阵P。 1.马尔可夫链细致平稳条件解决平稳分布π所对应的马尔可夫链状态转移矩阵P之前，我们先看一下马尔可夫链的细致平稳条件。其定义为：如果非周期马尔可夫链的状态转移矩">
 <meta name="twitter:image" content="https://weizhixiaoyi.com/2018/12/15/MCMC采样和M-H采样/推广.png">
 
 
@@ -150,7 +151,7 @@
   };
 </script>
 
-  <title> | 谓之小一</title>
+  <title>MCMC采样和M-H采样 | 谓之小一</title>
   
 
 
@@ -389,7 +390,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">MCMC采样和M-H采样
               
             
           </h2>
@@ -421,6 +422,24 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学统计学/" itemprop="url" rel="index"><span itemprop="name">数学统计学</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -428,7 +447,7 @@
 
           
           
-             <span id="/2018/12/15/MCMC采样和M-H采样/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2018/12/15/MCMC采样和M-H采样/" class="leancloud_visitors" data-flag-title="MCMC采样和M-H采样">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -453,7 +472,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.9k</span>
+                <span title="本文字数">2.8k</span>
               
 
               
@@ -487,8 +506,7 @@
       
 
       
-        <p>title: MCMC采样和M-H采样<br>date: 2018-12-15 16:16:08<br>tags: [数学基础]<br>categories: 数学统计学<br>mathjax: true</p>
-<p>在<a href="https://weizhixiaoyi.com/2018/12/01/MCMC%E4%B9%8B%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/">MCMC之马尔可夫链</a>之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状态转移矩阵P。</p>
+        <p>在<a href="https://weizhixiaoyi.com/2018/12/01/MCMC%E4%B9%8B%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/">MCMC之马尔可夫链</a>之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状态转移矩阵P。</p>
 <h3 id="1-马尔可夫链细致平稳条件"><a href="#1-马尔可夫链细致平稳条件" class="headerlink" title="1.马尔可夫链细致平稳条件"></a>1.马尔可夫链细致平稳条件</h3><p>解决平稳分布π所对应的马尔可夫链状态转移矩阵P之前，我们先看一下马尔可夫链的细致平稳条件。其定义为：如果非周期马尔可夫链的状态转移矩阵P和概率分布π(x)对于所有的i,j满足下列方程，则概率分布π(x)是状态转移矩阵P的平稳分布。</p>
 <script type="math/tex; mode=display">
 \pi(i)P(i,j) = \pi(j)P(j,i)</script><p>证明如下，由细致平稳条件有</p>
@@ -566,6 +584,12 @@ P(i,j) = Q(i,j)\alpha(i,j)</script><p>从上面可以得到，目标矩阵P可�
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学基础/" rel="tag"># 数学基础</a>
+          
+        </div>
       
 
       
@@ -853,7 +877,7 @@ P(i,j) = Q(i,j)\alpha(i,j)</script><p>从上面可以得到，目标矩阵P可�
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">268k</span>
+    <span title="站点总字数">267k</span>
   
 
   
@@ -1504,6 +1528,30 @@ P(i,j) = Q(i,j)\alpha(i,j)</script><p>从上面可以得到，目标矩阵P可�
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
