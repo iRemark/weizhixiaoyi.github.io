@@ -121,20 +121,28 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="谓之小一">
-<meta property="og:url" content="https://weizhixiaoyi.com/categories/操作系统/index.html">
+  <meta name="description" content="在MCMC采样和M-H采样中，我们讲到M-H采样已经可以很好的解决蒙特卡罗方法需要的任意概率分布的样本集问题。但是M-H采样有两个缺点：一是需要计算接受率，在高维情况下计算量非常大，同时由于接受率的原因导致算法收敛时间变长。二是有些高维数据，特征的条件概率分布方便求解，但特征的联合分布很难求解。因此需要改进M-H算法，来解决上面提到的两个问题，下面我们详细介绍Gibbs采样方法。 1.细致平衡条件">
+<meta name="keywords" content="数学基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gibbs采样">
+<meta property="og:url" content="https://weizhixiaoyi.com/2018/12/15/Gibbs采样/index.html">
 <meta property="og:site_name" content="谓之小一">
+<meta property="og:description" content="在MCMC采样和M-H采样中，我们讲到M-H采样已经可以很好的解决蒙特卡罗方法需要的任意概率分布的样本集问题。但是M-H采样有两个缺点：一是需要计算接受率，在高维情况下计算量非常大，同时由于接受率的原因导致算法收敛时间变长。二是有些高维数据，特征的条件概率分布方便求解，但特征的联合分布很难求解。因此需要改进M-H算法，来解决上面提到的两个问题，下面我们详细介绍Gibbs采样方法。 1.细致平衡条件">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/15/Gibbs采样/Gibbs采样图片01.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/15/Gibbs采样/推广.png">
+<meta property="og:updated_time" content="2018-12-16T05:43:55.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谓之小一">
+<meta name="twitter:title" content="Gibbs采样">
+<meta name="twitter:description" content="在MCMC采样和M-H采样中，我们讲到M-H采样已经可以很好的解决蒙特卡罗方法需要的任意概率分布的样本集问题。但是M-H采样有两个缺点：一是需要计算接受率，在高维情况下计算量非常大，同时由于接受率的原因导致算法收敛时间变长。二是有些高维数据，特征的条件概率分布方便求解，但特征的联合分布很难求解。因此需要改进M-H算法，来解决上面提到的两个问题，下面我们详细介绍Gibbs采样方法。 1.细致平衡条件">
+<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/12/15/Gibbs采样/Gibbs采样图片01.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://weizhixiaoyi.com/categories/操作系统/"/>
+  <link rel="canonical" href="https://weizhixiaoyi.com/2018/12/15/Gibbs采样/"/>
 
 
 
@@ -144,7 +152,7 @@
   };
 </script>
 
-  <title>分类: 操作系统 | 谓之小一</title>
+  <title>Gibbs采样 | 谓之小一</title>
   
 
 
@@ -201,7 +209,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -274,7 +282,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -346,88 +354,280 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>操作系统<small>分类</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/12/15/Gibbs采样/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谓之小一">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/27/进程、线程、锁的概念/" itemprop="url">
-              
-                <span itemprop="name">进程、线程、锁的概念</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Gibbs采样
+              
+            
+          </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-27T23:17:55+08:00"
-              content="2018-08-27" >
-          08-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-15 21:43:23" itemprop="dateCreated datePublished" datetime="2018-12-15T21:43:23+08:00">2018-12-15</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学统计学/" itemprop="url" rel="index"><span itemprop="name">数学统计学</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/15/Gibbs采样/" class="leancloud_visitors" data-flag-title="Gibbs采样">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在<a href="https://weizhixiaoyi.com/2018/12/15/MCMC%E9%87%87%E6%A0%B7%E5%92%8CM-H%E9%87%87%E6%A0%B7/">MCMC采样和M-H采样</a>中，我们讲到M-H采样已经可以很好的解决蒙特卡罗方法需要的任意概率分布的样本集问题。但是M-H采样有两个缺点：一是需要计算接受率，在高维情况下计算量非常大，同时由于接受率的原因导致算法收敛时间变长。二是有些高维数据，特征的条件概率分布方便求解，但特征的联合分布很难求解。因此需要改进M-H算法，来解决上面提到的两个问题，下面我们详细介绍Gibbs采样方法。</p>
+<h3 id="1-细致平衡条件"><a href="#1-细致平衡条件" class="headerlink" title="1.细致平衡条件"></a>1.细致平衡条件</h3><p><a href="https://weizhixiaoyi.com/2018/12/15/MCMC%E9%87%87%E6%A0%B7%E5%92%8CM-H%E9%87%87%E6%A0%B7/">MCMC采样和M-H采样</a>中我们讲到细致平衡条件，即如果非周期马尔可夫链状态转移矩阵P和概率分布π(x)对于所有的i,j满足下列方程，则称概率分布π(x)是状态转移矩阵P的平稳分布。</p>
+<script type="math/tex; mode=display">
+\pi(i) P(i,j) = \pi(j) P(j,i)</script><p>在M-H采样中我们通过引入接受率使细致平稳条件满足，现在我们换一种方法。从二维数据的分布开始，假设$\pi (x_1,x_2)$是一个二维联合的数据分布，观察<strong>第一个特征维度相同</strong>的两个点$A(x_1^{(1)},x_2^{(1)})$和$B(x_1^{(1)},x_2^{(2)})$，容易发现下面两式成立</p>
+<script type="math/tex; mode=display">
+\pi(x_1^{(1)},x_2^{(1)}) \pi(x_2^{(2)}|x_1^{(1)}) = \pi(x_1^{(1)}) \pi(x_2^{(1)}|x_1^{(1)})\pi(x_2^{(2)}|x_1^{(1)})</script><script type="math/tex; mode=display">
+\pi(x_1^{(1)},x_2^{(2)}) \pi(x_2^{(1)}|x_1^{(1)}) = \pi(x_1^{(1)}) \pi(x_2^{(1)}|x_1^{(1)})\pi(x_2^{(2)}|x_1^{(1)})</script><p>可以发现，上面两式的右边相等，因此我们有</p>
+<script type="math/tex; mode=display">
+\pi(x_1^{(1)},x_2^{(1)}) \pi(x_2^{(2)}|x_1^{(1)})  = \pi(x_1^{(1)},x_2^{(2)}) \pi(x_2^{(1)}|x_1^{(1)})</script><p>也就是</p>
+<script type="math/tex; mode=display">
+\pi(A) \pi(x_2^{(2)}|x_1^{(1)}) = \pi(B)\pi(x_2^{(1)}|x_1^{(1)})</script><p>通过上式，可以发现在$x_1^{(1)}$这条直线上，如果用条件概率分布$\pi(x_2|x_1^{(1)})$作为马尔可夫链的状态转移概率，则任意两个点之间的转移满足细致平稳条件。同样，在$x_2=x_2^{(1)}$这条直线上，如果用条件概率分布$\pi(x_1|x_2^{(1)})$作为马尔可夫链的状态转移概率，则任意两个点之间的状态转移也满足细致平稳条件。基于上面的发现，我们可以构造分布$\pi (x_1,x_2)$的马尔可夫链对应的状态转移矩阵P</p>
+<script type="math/tex; mode=display">
+if \ \ x_1^{(A)} = x_1^{(B)} = x_1^{(1)} \ \ \ P(A\rightarrow B) = \pi(x_2^{(B)} | x_1^{(1)})</script><script type="math/tex; mode=display">
+if \ \ x_2^{(A)} = x_2^{(C)} = x_2^{(1)}\ \ \ P(A\rightarrow C) = \pi(x_1^{(C)} | x_2^{(1)})</script><script type="math/tex; mode=display">
+else\ \ \ P(A \rightarrow D) = 0</script><p>有了上面状态转移矩阵，我们很容易验证平面上任意两点E,F可以满足细致平稳条件</p>
+<script type="math/tex; mode=display">
+\pi(E) P(E \rightarrow F) = \pi(F)P(F \rightarrow E)</script><h3 id="2-二维Gibbs采样"><a href="#2-二维Gibbs采样" class="headerlink" title="2.二维Gibbs采样"></a>2.二维Gibbs采样</h3><p>根据上面提到的状态转移矩阵，我们就可以得到二维Gibbs采样，这个采样需要两维度之间的条件概率，具体过程如下</p>
+<ul>
+<li>输入平稳分布$\pi(x_1,x_2)$，设定状态转移次数阈值$n_1$，需要的样本个数$n_2$。</li>
+<li>随机初始化初始状态值$x_1^{(0)}$和$x_2^{(0)}$。</li>
+<li>for t=0 to n1+n2-1<ul>
+<li>从条件概率分布$P(x_2|x_1^{(t)})$中采样得到样本$x_2^{(t+1)}$。</li>
+<li>从条件概率分布$P(x_1|x_2^{(t+1)})$中采样得到样本$x_1^{(t+1)}$。</li>
+</ul>
+</li>
+</ul>
+<p>样本集$\{ (x_1^{(n1)},x_2^{(n1)}) , (x_1^{(n1+1)},x_2^{(n1+1)}),…,(x_1^{(n1+n2-1)},x_2^{(n1+n2-1)})  \}$即为我们需要的平稳分布所对应的样本集。整个采样过程中，通过轮换坐标轴的方式进行采样，采样的过程为</p>
+<script type="math/tex; mode=display">
+(x_1^{(1)},x_2^{(1)})\rightarrow (x_1^{(1)},x_2^{(2)})\rightarrow (x_1^{(2)},x_2^{(2)})\rightarrow ... \rightarrow(x_1^{(n1+n2-1)},x_2^{(n1+n2-1)})</script><p>用下图可以直观的看出，采样是在两个坐标轴上不断变换的。当然，坐标轴轮换不是必须的，也可以每次随意选择一个坐标轴进行采样。</p>
+<p><img src="/2018/12/15/Gibbs采样/Gibbs采样图片01.png" alt="Gibbs采样图片01"></p>
+<h3 id="3-多维Gibbs采样"><a href="#3-多维Gibbs采样" class="headerlink" title="3.多维Gibbs采样"></a>3.多维Gibbs采样</h3><p>通过上面对二维Gibbs采样的介绍，我们同样可以推广到多维的情况。比如n维的概率分布$\pi(x_1,x_2,…,x_n)$，可以通过在n个坐标轴轮换采样，来得到新的样本。对于轮换的任意一个坐标轴$x_i$的转移，马尔可夫链的状态转移概率为$P(x_i|x_1,x_2,…,x_{i-1},x_{i+1},…,x_n)$。即固定n-1个坐标轴，在某一个坐标轴上移动。具体算法过程如下</p>
+<ul>
+<li>输入平稳分布$\pi(x_1,x_2,…,x_n )$或者对应的所有特征的条件概率分布，设定状态转移次数阈值$n_1$，需要的样本个数$n_2$。</li>
+<li>随机初始化初始状态值$x_1^{(0)}，x_2^{(0)},..,x_n^{(0)}$。</li>
+<li>for t=0 to n1+n2-1<ul>
+<li>从条件概率分布$P(x_1|x_2^{(t)},x_3^{(t)},…,x_n^{(t)})$中采样得到样本$ x_1^{(t+1)} $。</li>
+<li>从条件概率分布$P(x_2|x_1^{(t+1)},x_3^{(t)},…,x_n^{(t)})$中采样得到样本$ x_2^{(t+1)} $。</li>
+<li>…</li>
+<li>从条件概率分布$P(x_n|x_1^{(t+1)},x_2^{(t+1)},…,x_{n-1}^{(t+1)})$中采样得到样本$ x_n^{(t+1)} $。</li>
+</ul>
+</li>
+</ul>
+<p>样本集$\{ (x_1^{(n1)},x_2^{(n1)},…,x_n^{(n1)}),…,x_n^{(n1+1)}), …,(x_1^{(n1+n2-1)},x_2^{(n1+n2-1)},…,x_n^{(n1+n2-1)})  \}$即为我们需要的平稳分布所对应的样本集。同样轮换坐标轴不是必须的，可以随机选择某一个坐标轴进行转移，不过常用的Gibbs采样的实现都是基于坐标轴轮换的。</p>
+<h3 id="4-Gibbs采样总结"><a href="#4-Gibbs采样总结" class="headerlink" title="4.Gibbs采样总结"></a>4.Gibbs采样总结</h3><p>由于Gibbs采样在高维特征时的优势，目前通常意义上的MCMC采样都是用Gibbs采样。Gibbs采样要求数据至少有两个维度，一维概率分布的采样无法用Gibbs采样实现，这时可以用M-H方法采样。通过Gibbs采样来获取概率分布的样本集，通过蒙特卡罗方法来用样本集求和，两者一起奠定了MCMC算法在高维数据模拟求和时的作用。</p>
+<h3 id="5-推广"><a href="#5-推广" class="headerlink" title="5.推广"></a>5.推广</h3><p>更多内容请关注公众号<strong>谓之小一</strong>，若有疑问可在公众号后台提问，随时回答，欢迎关注，内容转载请注明出处。</p>
+<p><img src="/2018/12/15/Gibbs采样/推广.png" alt="推广"></p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学基础/" rel="tag"># 数学基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/15/MCMC采样和M-H采样/" rel="next" title="MCMC采样和M-H采样">
+                <i class="fa fa-chevron-left"></i> MCMC采样和M-H采样
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDgwNS8xMTM0Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -448,8 +648,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -613,6 +822,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-细致平衡条件"><span class="nav-text">1.细致平衡条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-二维Gibbs采样"><span class="nav-text">2.二维Gibbs采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-多维Gibbs采样"><span class="nav-text">3.多维Gibbs采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Gibbs采样总结"><span class="nav-text">4.Gibbs采样总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-推广"><span class="nav-text">5.推广</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -774,6 +999,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -798,6 +1027,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
@@ -1274,6 +1514,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
