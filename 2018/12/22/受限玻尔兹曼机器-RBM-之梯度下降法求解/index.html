@@ -129,15 +129,15 @@
 <meta property="og:site_name" content="谓之小一">
 <meta property="og:description" content="前面我们讲到深度学习的两类神经网络模型的原理，包括前向神经网络和有反馈的神经网络。前向神经网络包括深度神经网络和卷积神经网络，有反馈的神经网络包括循环神经网络和LSTM神经网络。本篇文章，我们来了解第三类神经网络模型：玻尔兹曼机。 1.RBM模型结构玻尔兹曼机是一类神经网络模型，但在实际应用中使用最多的是受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)。RBM模">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/图片01.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/图片02.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/图片03.png">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/推广.png">
-<meta property="og:updated_time" content="2018-12-22T12:53:30.006Z">
+<meta property="og:updated_time" content="2018-12-22T13:02:31.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="受限玻尔兹曼机器(RBM)之梯度下降法求解">
 <meta name="twitter:description" content="前面我们讲到深度学习的两类神经网络模型的原理，包括前向神经网络和有反馈的神经网络。前向神经网络包括深度神经网络和卷积神经网络，有反馈的神经网络包括循环神经网络和LSTM神经网络。本篇文章，我们来了解第三类神经网络模型：玻尔兹曼机。 1.RBM模型结构玻尔兹曼机是一类神经网络模型，但在实际应用中使用最多的是受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)。RBM模">
-<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM">
+<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/图片01.png">
 
 
 
@@ -512,7 +512,7 @@
         <p>前面我们讲到深度学习的两类神经网络模型的原理，包括前向神经网络和有反馈的神经网络。前向神经网络包括<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483903&amp;idx=1&amp;sn=4e3f92578399013eba9f203d35afe972&amp;chksm=fcd7d209cba05b1ffc66494ea8008c669e40f3045398695b479aba14e1c425f85b7c8f033c4f&amp;token=1935036292&amp;lang=zh_CN#rd" target="_blank" rel="noopener">深度神经网络</a>和<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483958&amp;idx=1&amp;sn=4527cba9c60fe8d634c5132398d17827&amp;chksm=fcd7d1c0cba058d6c7d331affcaa3bf1a9bb532959a857763c3c31f069f1fcb343c67c89652a&amp;token=1935036292&amp;lang=zh_CN#rd" target="_blank" rel="noopener">卷积神经网络</a>，有反馈的神经网络包括<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483980&amp;idx=1&amp;sn=55041808b3f6cd25a6bb40a9586e121f&amp;chksm=fcd7d1bacba058ac6e9f077f5a8e606eaa032b0fd5d86964c26b7ff83433c179ebc6f3d5f439&amp;token=1935036292&amp;lang=zh_CN#rd" target="_blank" rel="noopener">循环神经网络</a>和<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483988&amp;idx=1&amp;sn=936d0c6c664e36f90e83612656bbcc57&amp;chksm=fcd7d1a2cba058b402897e29ee806f4b6fbf60ae70803af7fbae95206bfb2bf8cad6e50bca32&amp;token=1935036292&amp;lang=zh_CN#rd" target="_blank" rel="noopener">LSTM神经网络</a>。本篇文章，我们来了解第三类神经网络模型：<strong>玻尔兹曼机</strong>。</p>
 <h3 id="1-RBM模型结构"><a href="#1-RBM模型结构" class="headerlink" title="1.RBM模型结构"></a>1.RBM模型结构</h3><p>玻尔兹曼机是一类神经网络模型，但在实际应用中使用最多的是<strong>受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)</strong>。RBM模型本身很简单，只是一个两层的神经网络，因此严格意义上不算是深度学习的范畴。</p>
 <p>RBM包含两层，隐藏层(hidden layer)和可见层(visible layer)。隐藏层和可见层之间是全连接的，这点和DNN类似。不同的是RBM不分前向和后向，可见层的状态可以作用于隐藏层，隐藏层的状态也可以作用于可见层。常用的RBM一般是二值的，即不管隐藏层还是可见层，他们的神经元的取值只为0或1。本文只讨论二值RBM，模型结构如下所示。</p>
-<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM" alt="受限玻尔兹曼机器(RBM)之梯度下降法求解图片01">之梯度下降法求解图片01.png)</p>
+<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/图片01.png" alt="图片01"></p>
 <p>其中下层表示可见层，用v向量表示可见层神经元的值，a向量表示可见层的偏倚系数。上层表示隐藏层，用h向量表示隐藏层神经元的值，b向量表示隐藏层神经元的偏倚系数。两者的连接权重用矩阵W表示。</p>
 <h3 id="2-RBM概率分布"><a href="#2-RBM概率分布" class="headerlink" title="2.RBM概率分布"></a>2.RBM概率分布</h3><p>RBM是基于能量的概率分布模型，包含能量函数和基于能量函数的概率分布函数。例如，对应上述给定的状态向量h和v，RBM当前的能量函数可以表示为</p>
 <script type="math/tex; mode=display">
@@ -572,9 +572,9 @@ L(W,a,b) = -\sum_{i=1}^m ln(P(V^{(i)}))</script><p>对于求解参数W,a,b，我
 <script type="math/tex; mode=display">
 \frac{\partial(-ln(P(V)))}{\partial b_i} = \sum_vP(v)P(h_i=1|v)-P(h_i=1|V)</script><script type="math/tex; mode=display">
 \frac{\partial(-ln(P(V)))}{\partial W_{ij}} = \sum_vP(v)P(h_i = 1|v)v_j - P(h_i = 1|V)V_j</script><h3 id="4-RBM推广到DBM"><a href="#4-RBM推广到DBM" class="headerlink" title="4.RBM推广到DBM"></a>4.RBM推广到DBM</h3><p>RBM很容易推广到DBM(深层的RBM)，推广的方法就是加入更多的隐藏层，比如一个三层的DBM如下所示</p>
-<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM" alt="受限玻尔兹曼机器(RBM)之梯度下降法求解图片02">之梯度下降法求解图片02.png)</p>
+<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/图片02.png" alt="图片02"></p>
 <p>当然隐藏层的层数可以是任意的，随着层数的增多，那模型怎么表示呢？其实DBM也可以看作是一个RBM，比如下面一个四层的DBM，稍加变化就可以看作是一个RBM。</p>
-<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM" alt="受限玻尔兹曼机器(RBM)之梯度下降法求解03">之梯度下降法求解03.png)</p>
+<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/图片03.png" alt="图片03"></p>
 <p>将偶数可见层放在一边，将奇数隐藏层放在另一边，就可以得到RBM，只是现在的RBM并不是全连接的，其实也可以看作部分权重为0的全连接RBM。RBM的算法思想同样可以在DBM上使用，只是此时我们需要求解的模型参数会更多，参数迭代过程中更加复杂。</p>
 <h3 id="5-RBM总结"><a href="#5-RBM总结" class="headerlink" title="5.RBM总结"></a>5.RBM总结</h3><p>上面我们用到梯度下降法求解RBM参数，虽然理论上可以解决RBM的优化，但在实际应用中，由于概率分布的计算量大，有pow(2,nv+nh)种情况，所以往往不能直接按照上面的梯度公式去求所有样本的梯度和。而是用基于MCMC的方法来模拟计算求解每个样本的梯度损失，然后再求梯度和。常用的方法是基于Gibbs采样的对比散度方法，下篇文章我们将来详细介绍。</p>
 <h3 id="6-推广"><a href="#6-推广" class="headerlink" title="6.推广"></a>6.推广</h3><p>更多内容请关注公众号<strong>谓之小一</strong>，若有疑问可在公众号后台提问，随时回答，欢迎关注，内容转载请注明出处。</p>
