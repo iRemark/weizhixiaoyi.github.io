@@ -121,27 +121,30 @@
 
 
 
-  <meta name="description" content="1.朴素贝叶斯简介朴素贝叶斯(Naive Bayesian)算法能够根据数据加先验概率来估计后验概率，在垃圾邮件分类、文本分类、信用等级评定等多分类问题中得到广泛应用。对于多数的分类算法，比如决策树、KNN等，他们都是判别方法，也就是直接学习出特征输出Y和特征X之间的关系。但朴素贝叶斯和多数分类算法都不同，朴素贝叶斯是生成算法，也就是先找出特征输出Y和特征X的联合分布$P(X,Y)$ ，然后用$P">
-<meta name="keywords" content="机器学习,算法">
+  <meta name="description" content="前面我们讲到深度学习的两类神经网络模型的原理，包括前向神经网络和有反馈的神经网络。前向神经网络包括深度神经网络和卷积神经网络，有反馈的神经网络包括循环神经网络和LSTM神经网络。本篇文章，我们来了解第三类神经网络模型：玻尔兹曼机。 1.RBM模型结构玻尔兹曼机是一类神经网络模型，但在实际应用中使用最多的是受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)。RBM模">
+<meta name="keywords" content="机器学习,深度学习,算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习之朴素贝叶斯算法">
-<meta property="og:url" content="https://weizhixiaoyi.com/2018/05/14/机器学习之朴素贝叶斯算法/index.html">
+<meta property="og:title" content="受限玻尔兹曼机器(RBM)之梯度下降法求解">
+<meta property="og:url" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/index.html">
 <meta property="og:site_name" content="谓之小一">
-<meta property="og:description" content="1.朴素贝叶斯简介朴素贝叶斯(Naive Bayesian)算法能够根据数据加先验概率来估计后验概率，在垃圾邮件分类、文本分类、信用等级评定等多分类问题中得到广泛应用。对于多数的分类算法，比如决策树、KNN等，他们都是判别方法，也就是直接学习出特征输出Y和特征X之间的关系。但朴素贝叶斯和多数分类算法都不同，朴素贝叶斯是生成算法，也就是先找出特征输出Y和特征X的联合分布$P(X,Y)$ ，然后用$P">
+<meta property="og:description" content="前面我们讲到深度学习的两类神经网络模型的原理，包括前向神经网络和有反馈的神经网络。前向神经网络包括深度神经网络和卷积神经网络，有反馈的神经网络包括循环神经网络和LSTM神经网络。本篇文章，我们来了解第三类神经网络模型：玻尔兹曼机。 1.RBM模型结构玻尔兹曼机是一类神经网络模型，但在实际应用中使用最多的是受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)。RBM模">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/05/14/机器学习之朴素贝叶斯算法/推广.png">
-<meta property="og:updated_time" content="2018-11-07T02:05:28.622Z">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/推广.png">
+<meta property="og:updated_time" content="2018-12-22T12:53:30.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习之朴素贝叶斯算法">
-<meta name="twitter:description" content="1.朴素贝叶斯简介朴素贝叶斯(Naive Bayesian)算法能够根据数据加先验概率来估计后验概率，在垃圾邮件分类、文本分类、信用等级评定等多分类问题中得到广泛应用。对于多数的分类算法，比如决策树、KNN等，他们都是判别方法，也就是直接学习出特征输出Y和特征X之间的关系。但朴素贝叶斯和多数分类算法都不同，朴素贝叶斯是生成算法，也就是先找出特征输出Y和特征X的联合分布$P(X,Y)$ ，然后用$P">
-<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/05/14/机器学习之朴素贝叶斯算法/推广.png">
+<meta name="twitter:title" content="受限玻尔兹曼机器(RBM)之梯度下降法求解">
+<meta name="twitter:description" content="前面我们讲到深度学习的两类神经网络模型的原理，包括前向神经网络和有反馈的神经网络。前向神经网络包括深度神经网络和卷积神经网络，有反馈的神经网络包括循环神经网络和LSTM神经网络。本篇文章，我们来了解第三类神经网络模型：玻尔兹曼机。 1.RBM模型结构玻尔兹曼机是一类神经网络模型，但在实际应用中使用最多的是受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)。RBM模">
+<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM">
 
 
 
 
 
 
-  <link rel="canonical" href="https://weizhixiaoyi.com/2018/05/14/机器学习之朴素贝叶斯算法/"/>
+  <link rel="canonical" href="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/"/>
 
 
 
@@ -151,7 +154,7 @@
   };
 </script>
 
-  <title>机器学习之朴素贝叶斯算法 | 谓之小一</title>
+  <title>受限玻尔兹曼机器(RBM)之梯度下降法求解 | 谓之小一</title>
   
 
 
@@ -373,7 +376,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/05/14/机器学习之朴素贝叶斯算法/">
+    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoYi">
@@ -390,7 +393,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">机器学习之朴素贝叶斯算法
+          <h2 class="post-title" itemprop="name headline">受限玻尔兹曼机器(RBM)之梯度下降法求解
               
             
           </h2>
@@ -415,7 +418,7 @@
                 
               
 
-              <time title="创建时间：2018-05-14 11:22:17" itemprop="dateCreated datePublished" datetime="2018-05-14T11:22:17+08:00">2018-05-14</time>
+              <time title="创建时间：2018-12-22 15:20:45" itemprop="dateCreated datePublished" datetime="2018-12-22T15:20:45+08:00">2018-12-22</time>
             
 
             
@@ -433,7 +436,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
 
                 
                 
@@ -447,7 +450,7 @@
 
           
           
-             <span id="/2018/05/14/机器学习之朴素贝叶斯算法/" class="leancloud_visitors" data-flag-title="机器学习之朴素贝叶斯算法">
+             <span id="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/" class="leancloud_visitors" data-flag-title="受限玻尔兹曼机器(RBM)之梯度下降法求解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -472,7 +475,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5.6k</span>
+                <span title="本文字数">3.6k</span>
               
 
               
@@ -486,7 +489,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">9 分钟</span>
+                <span title="阅读时长">6 分钟</span>
               
             </div>
           
@@ -506,105 +509,76 @@
       
 
       
-        <h3 id="1-朴素贝叶斯简介"><a href="#1-朴素贝叶斯简介" class="headerlink" title="1.朴素贝叶斯简介"></a>1.朴素贝叶斯简介</h3><p><strong>朴素贝叶斯(Naive Bayesian)</strong>算法能够根据数据加先验概率来估计后验概率，在垃圾邮件分类、文本分类、信用等级评定等多分类问题中得到广泛应用。对于多数的分类算法，比如决策树、KNN等，他们都是判别方法，也就是直接学习出特征输出Y和特征X之间的关系。但朴素贝叶斯和多数分类算法都不同，朴素贝叶斯是生成算法，也就是先找出特征输出Y和特征X的联合分布$P(X,Y)$ ，然后用$P(Y|X)=\frac{P(X,Y)}{P(X)}$得出。</p>
-<p>朴素贝叶斯算法的优点在于简单易懂、学习效率高，在某些领域的分类问题中能够与决策树相媲美。但朴素贝叶斯算法以自变量之间的独立性和连续变量的正态性假设为前提，会导致算法精度在一定程度上受到影响。</p>
-<h3 id="2-朴素贝叶斯算法模型"><a href="#2-朴素贝叶斯算法模型" class="headerlink" title="2.朴素贝叶斯算法模型"></a>2.朴素贝叶斯算法模型</h3><h4 id="2-1统计知识回顾"><a href="#2-1统计知识回顾" class="headerlink" title="2.1统计知识回顾"></a>2.1统计知识回顾</h4><p>深入算法原理之前，我们先来回顾下统计学的相关知识。</p>
-<ul>
-<li><strong>条件概率公式</strong></li>
-</ul>
+        <p>前面我们讲到深度学习的两类神经网络模型的原理，包括前向神经网络和有反馈的神经网络。前向神经网络包括<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483903&amp;idx=1&amp;sn=4e3f92578399013eba9f203d35afe972&amp;chksm=fcd7d209cba05b1ffc66494ea8008c669e40f3045398695b479aba14e1c425f85b7c8f033c4f&amp;token=1935036292&amp;lang=zh_CN#rd" target="_blank" rel="noopener">深度神经网络</a>和<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483958&amp;idx=1&amp;sn=4527cba9c60fe8d634c5132398d17827&amp;chksm=fcd7d1c0cba058d6c7d331affcaa3bf1a9bb532959a857763c3c31f069f1fcb343c67c89652a&amp;token=1935036292&amp;lang=zh_CN#rd" target="_blank" rel="noopener">卷积神经网络</a>，有反馈的神经网络包括<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483980&amp;idx=1&amp;sn=55041808b3f6cd25a6bb40a9586e121f&amp;chksm=fcd7d1bacba058ac6e9f077f5a8e606eaa032b0fd5d86964c26b7ff83433c179ebc6f3d5f439&amp;token=1935036292&amp;lang=zh_CN#rd" target="_blank" rel="noopener">循环神经网络</a>和<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483988&amp;idx=1&amp;sn=936d0c6c664e36f90e83612656bbcc57&amp;chksm=fcd7d1a2cba058b402897e29ee806f4b6fbf60ae70803af7fbae95206bfb2bf8cad6e50bca32&amp;token=1935036292&amp;lang=zh_CN#rd" target="_blank" rel="noopener">LSTM神经网络</a>。本篇文章，我们来了解第三类神经网络模型：<strong>玻尔兹曼机</strong>。</p>
+<h3 id="1-RBM模型结构"><a href="#1-RBM模型结构" class="headerlink" title="1.RBM模型结构"></a>1.RBM模型结构</h3><p>玻尔兹曼机是一类神经网络模型，但在实际应用中使用最多的是<strong>受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)</strong>。RBM模型本身很简单，只是一个两层的神经网络，因此严格意义上不算是深度学习的范畴。</p>
+<p>RBM包含两层，隐藏层(hidden layer)和可见层(visible layer)。隐藏层和可见层之间是全连接的，这点和DNN类似。不同的是RBM不分前向和后向，可见层的状态可以作用于隐藏层，隐藏层的状态也可以作用于可见层。常用的RBM一般是二值的，即不管隐藏层还是可见层，他们的神经元的取值只为0或1。本文只讨论二值RBM，模型结构如下所示。</p>
+<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM" alt="受限玻尔兹曼机器(RBM)之梯度下降法求解图片01">之梯度下降法求解图片01.png)</p>
+<p>其中下层表示可见层，用v向量表示可见层神经元的值，a向量表示可见层的偏倚系数。上层表示隐藏层，用h向量表示隐藏层神经元的值，b向量表示隐藏层神经元的偏倚系数。两者的连接权重用矩阵W表示。</p>
+<h3 id="2-RBM概率分布"><a href="#2-RBM概率分布" class="headerlink" title="2.RBM概率分布"></a>2.RBM概率分布</h3><p>RBM是基于能量的概率分布模型，包含能量函数和基于能量函数的概率分布函数。例如，对应上述给定的状态向量h和v，RBM当前的能量函数可以表示为</p>
 <script type="math/tex; mode=display">
-P(X,Y)=P(X)P(Y)\ X、Y相互独立</script><ul>
-<li><strong>条件概率公式</strong></li>
-</ul>
+E(v,h) = -\sum_{i=1} ^{n_v} a_i v_i -\sum_{j=1}^{n_h}b_jh_j - \sum_{i=1}^{n_v}\sum_{j=1}^{n_h}h_j w_{j,i} v_i</script><p>矩阵表达形式为</p>
 <script type="math/tex; mode=display">
-P(Y|X)=\frac{P(X,Y)}{P(X)}
-\\ P(X|Y)=\frac{P(X,Y)}{P(Y)}</script><ul>
-<li><strong>全概率公式</strong></li>
-</ul>
+E(v,h) = -a^Tv - b^Th - h^TWv</script><p>有了能量函数，则定义给定v,h的概率分布函数为</p>
 <script type="math/tex; mode=display">
-P(X)=\sum_{j}P(X|Y=Y_j)P(Y_j)\ 其中\sum _{j}P(Y_j)=1</script><p>经过上面统计学知识，我们能够得出贝叶斯公式。</p>
+P(v,h) = \frac{1}{Z} e^{-E(v,h)}</script><p>其中Z为归一化因子，类似于softmax中的归一化因子，表达式为</p>
 <script type="math/tex; mode=display">
-P(Y_k|X)=\frac{P(X,Y_k)}{P(X)}=\frac{P(X|Y_k)P(Y_k)}{\sum_{k=1}^{K}P(X|Y=Y_k)P(Y_k)}</script><h4 id="2-2朴素贝叶斯模型"><a href="#2-2朴素贝叶斯模型" class="headerlink" title="2.2朴素贝叶斯模型"></a>2.2朴素贝叶斯模型</h4><p>假设我们已经有部分数据，并且能从数据中得到先验概率，那么如何得到后验概率$P(Y_k|X)$呢？下面我们通过构建朴素贝叶斯分类模型来解决后验概率问题，假设分类模型数据有m个样本，每个样本有n个特征，特征输出有K个类别，定义为${C1,C2,…,Ck}$。</p>
+Z = \sum _{v,h} e^{-E(v,h)}</script><p>有了概率分布，我们就可以求出条件分布P(h|v)为</p>
 <script type="math/tex; mode=display">
-\{ (x_{1}^{(1)},x_{2}^{(1)},...,x_{n}^{(1)},y_1),(x_{1}^{(2)},x_{2}^{(2)},...,x_{n}^{(2)},y_2),...,(x_{1}^{(m)},x_{2}^{(m)},...,x_{n}^{(m)},y_m)\}</script><p>从样本中我们能够学习得到朴素贝叶斯的先验分布概率</p>
+p(h|v) = \frac{P(h,v)}{P(v)}
+\\
+= \frac{1}{P(v)} \frac{1}{Z} exp(a^Tv + b^Th + h^T W v)
+\\
+= \frac{1}{Z'} exp(b^T + h^TWv)
+\\
+= \frac{1}{Z'} exp{\sum _{j=1}^{n_h}(b_j^Th_j + h_j^TW_j v)}  
+\\
+= \frac{1}{Z'} \prod_{j=1}^{n_h} exp (b_j^Th_j + h_j^TW_jv)</script><p>其中Z’为新的归一化系数，表达式为</p>
 <script type="math/tex; mode=display">
-P(Y=C_k)(k=1,2,…,K)</script><p>然后学习得到条件概率分布</p>
+\frac{1}{Z'} = \frac{1}{P(v)}\frac{1}{Z}exp(a^Tv)</script><p>同样的方法，我们也可以求出P(v|h)。有了条件概率分布，我们来看看RBM的激活函数，由于使用的是能量概率模型，RBM的基于条件分布的激活函数是很容易推导出来的。此处我们以P(hj = 1|v)为例进行推导</p>
 <script type="math/tex; mode=display">
-P(X|Y=C_k)=P(X_1=x^{(1)},X_2=x^{(2)},...,X_n=x^{(n)}|Y=C_k)</script><p>最后结合贝叶斯公式便可得到X和Y的联合分布$P(X,Y=C_k)$</p>
+P(h_j = 1 |v) = \frac{P(h_j = 1 |v)}{P(h_j = 0 |v) + P(h_j = 1 |v)}
+\\
+= \frac{\frac{1}{Z'}(\prod_{k \neq j} exp(b_k^Th_k + h_k^TW_kv))exp(b_j + W_jv)}{\frac{1}{Z'}(\prod_{k \neq j} exp(b_k^Th_k + h_k^TW_kv))exp(0) + \frac{1}{Z'}(\prod_{k \neq j} exp(b_k^Th_k + h_k^TW_kv))exp(b_j + W_jv)}
+\\
+= \frac{exp(b_j + W_jv)}{1 + exp(b_j + W_jv)}
+\\
+= \frac{1}{1 + exp(-(b_j + W_jv))}
+\\
+= sigmoid(b_j + W_j v)</script><p>从上面可以看出，RBM从可见层到隐藏层用的其实就是sigmoid激活函数。同样的方法，我们也可以得到隐藏层到可见层的激活函数，也是sigmoid激活函数。即</p>
 <script type="math/tex; mode=display">
-P(X,Y=C_k)=P(Y=C_k)P(X|Y=C_k)\ \ \ \ (1)</script><script type="math/tex; mode=display">
-=P(Y=C_k)P(X_1=x^{(1)},X_2=x^{(2)},...,X_n=x^{(n)}|Y=C_k) \ \ \ \ (2)</script><p>上式中$P(Y=C_k)$可以通过极大似然法求出，得到的$P(Y=C_k)$就是类别$C_k$在训练集里面出现的频数。但是$P(X_1=x^{(1)},X_2=x^{(2)},…,X_n=x^{(n)}|Y=C_k)$很难求出，因此朴素贝叶斯模型做一个大胆的假设，即X的n个维度之间相互独立，这样就可以得出</p>
+P(v_j = 1|h) = sigmoid(a_j + W_j^T h)</script><p>有了激活函数，我们就可以根据可见层和参数推导出隐藏层神经元的取值概率。同样的方法，也可以从隐藏层推导出可见层神经元的取值概率。对于0,1取值的情况，可以设置大于0.5取值为1，小于0.5取值为0。</p>
+<h3 id="3-RBM模型参数求解"><a href="#3-RBM模型参数求解" class="headerlink" title="3.RBM模型参数求解"></a>3.RBM模型参数求解</h3><p>RBM模型的关键是求出模型中的W,a,b参数，如何求出呢？对于训练集V，RBM一般采用对数损失函数，即希望最小化下式</p>
 <script type="math/tex; mode=display">
-P(X_1=x^{(1)},X_2=x^{(2)},...,X_n=x^{(n)}|Y=C_k)</script><script type="math/tex; mode=display">
-=P(X_1=x^{(1)}|Y=C_k)P(X_2=x^{(2)}|Y=C_k),...,P(X_n=x^{(n)}|Y=C_k)</script><p>这样我们便得到X和Y的联合分布，最后的问题是给定测试集$(x_1^{(test)},x_2^{(test)},…,x_n^{(test)})$，如何判断它属于哪个类型？</p>
-<h4 id="2-3朴素贝叶斯推断"><a href="#2-3朴素贝叶斯推断" class="headerlink" title="2.3朴素贝叶斯推断"></a>2.3朴素贝叶斯推断</h4><p>假如我们预测的类别结果为$C_{result}$，其中$C_{result}$是使$P(Y=C_k|X=X^{(test)})$最大的类别，数学表达式为</p>
+L(W,a,b) = -\sum_{i=1}^m ln(P(V^{(i)}))</script><p>对于求解参数W,a,b，我们首先想到的是梯度下降法来迭代求解。首先来看单个样本的梯度计算，单个样本的损失函数如下述所示。其中V表示某个特定的训练样本，v指的是任意一个样本。</p>
 <script type="math/tex; mode=display">
-C_{result}=\underset{C_k}{\underbrace{\arg\max}} P(Y=C_k|X=X^{(test)})</script><script type="math/tex; mode=display">
-= \underset{C_k}{\underbrace{\arg\max}} \frac{P(X=X^{(test)}|Y=C_k)P(Y=C_k)}{P(X=X^{(test)})}</script><p>由于对所有类别计算$P(Y=C_k|X=X^{(test)})$时，分母都是$P(X=X^{(test)})$，因此我们的预测公式可以简化为</p>
+-ln(P(V)) = - ln (\frac{1}{Z} \sum _h e^{-E(V,h)})
+\\
+= lnZ - ln(\sum_h e^{-E(V,h)})
+\\
+= ln(\sum_{v,h}e^{-E(v,h)} - ln(\sum_h e^{(-E(V,h))})</script><p>以ai的梯度计算为例</p>
 <script type="math/tex; mode=display">
-C_{result}=\underset{C_k}{\underbrace{\arg\max}} P(X=X^{(test)}|Y=C_k)P(Y=C_k)</script><p>然后利用朴素贝叶斯的独立性假设，就可以得到朴素贝叶斯推断公式</p>
+\frac{\partial(-ln(P(V)))}{\partial a_i} = \frac{1}{\partial a_i} \partial ln(\sum _{v,h}e^{-E(v,h)}) - \frac{1}{\partial a_i} \partial ln(\sum_h e^{-E(V,h)})
+\\
+= -\frac{1}{\sum_{v,h} e^{-E(v,h)}} \sum_{v,h} e^{-E(v,h)} \frac{\partial E(v,h)}{\partial a_i} + \frac{1}{\sum_{h} e^{-E(V,h)}} \sum_h e^{-E(V,h)} \frac{\partial E(V,h)}{\partial a_i}
+\\
+= \sum_hP(h|V) \frac{\partial E(V,h)}{\partial a_i} - \sum_{v,h}P(v,h) \frac{\partial E(v,h)}{\partial a_i}
+\\
+= -\sum_h P(h|V)V_i + \sum_{v,h}P(h,v)v_i
+\\
+= -\sum_h P(h|V)V_i + \sum_vP(v)\sum_h P(h|v)v_i
+\\
+= \sum_v P(v)v_i - V_i</script><p>其中用到$\sum_h P(h|V)=1$和$\sum_hP(h|V)=1$。</p>
+<p>同样的方法，可以得到W,b的梯度，结果如下所示</p>
 <script type="math/tex; mode=display">
-C_{result}=\underset{C_k}{\underbrace{\arg\max}} P(Y=C_k)\prod_{j=1}^{n}P(X_j=X_j^{(test)}|Y=C_k)</script><h4 id="2-4朴素贝叶斯参数估计"><a href="#2-4朴素贝叶斯参数估计" class="headerlink" title="2.4朴素贝叶斯参数估计"></a>2.4朴素贝叶斯参数估计</h4><p>对于<strong>2.3</strong>中朴素贝叶斯推断公式，我们只要求出$P(Y=C_k)$和$P(X_j=X_j^{(test)}|Y=C_k)(j=1,2,…,n)$，就可以得到预测结果。对于$P(Y=C_k)$比较简单，通过极大似然估计能够得到$C_k$出现的概率，也就是样本类别$C_k$出现的次数$m_k$除以样本总数m。而对于$P(X_j=X_j^{(test)}|Y=C_k)(j=1,2,…,n)$则取决于我们的先验条件。</p>
-<ul>
-<li>如果$X_j$是<strong>离散值</strong>，那么可以假设$X_j$服从多项式分布，这样得到的$P(X_j=X_j^{(test)}|Y=C_k)$是在样本类别中$X_j^{test}$出现的频率，公式如下所示。其中$m_k$为样本类别$C_k$出现的次数，而$m_{kj}^{(test)}$为类别是$C_k$的样本中，第j维特征$X_j^{(test)}$出现的次数。<script type="math/tex; mode=display">
-P(X_j=X_j^{(test)}|Y=C_k)=\frac{m_{kj}^{(test)}}{m_k}</script>某些时候可能一些类别在样本中从来没有出现，这样可能导致$P(X_j=X_j^{(test)}|Y=C_k)$为0，因此会影响后验概率的估计。为了解决此类情况，我们引入拉普拉斯平滑，公式如下所示。其中$\lambda$为大于0的常数，常取为1，$O_j$为第j个特征的取值个数。</li>
-</ul>
-<script type="math/tex; mode=display">
-P(X_j=X_j^{(test)}|Y=C_k)=\frac{m_{kj}^{(test)}+\lambda}{m_k+O_j \lambda}</script><ul>
-<li>如果$X_j$是<strong>稀疏的离散值</strong>，即各个特征的出现概率很低，那么可以假设$X_j$服从伯努利分布，即特征$X_j$出现记为1，不出现记为0。即我们只关注$X_j$是否出现，不关注$X_j$出现的次数，这样得到的$P(X_j=X_j^{(test)}|Y=C_k)$是在样本类别$C_k$中$X_j^{(test)}$出现的频率，公式如下所示。其中$X_j^{(test)}$取值为0和1。</li>
-</ul>
-<script type="math/tex; mode=display">
-P(X_j=X_j^{(test)}|Y=C_k)=P(X_j|Y=C_k)X_j^{(test)}+(1-P(X_j|Y=C_k))(1-X_j^{(test)})</script><ul>
-<li>如果$X_j$是<strong>连续值</strong>，那么假设$X_j$的先验概率为高斯分布(正态分布)，这样假设$P(X_j=X_j^{(test)}|Y=C_k)$的概率分布公式如下所示。其中$\mu_k$和$\sigma_{k}^2$是正态分布的期望和方差，$\mu_k$为样本类别$C_k$中，所有$X_j$的平均值，$\sigma_{k}^2$为样本类别$C_k$中，所有$X_j$的方差，$\mu_k$和$\sigma _{k}^2$可以通过极大似然估计求得。<script type="math/tex; mode=display">
-P(X_j=X_j^{(test)}|Y=C_k)=\frac{1}{\sqrt{2 \pi \sigma^2}}exp(-\frac{(X_j^{(test)}- \mu_k)^2}{2\sigma_{k}^{2}})</script></li>
-</ul>
-<h3 id="3-朴素贝叶斯算法流程"><a href="#3-朴素贝叶斯算法流程" class="headerlink" title="3.朴素贝叶斯算法流程"></a>3.朴素贝叶斯算法流程</h3><p>我们总结下朴素贝叶斯算法流程，假设训练集有m个样本n个维度，训练样本有K个特征输出类别，分别为$C1,C2,…,C_K$，每个特征输出类别的样本个数为$m_1,m_2,…,m_K$。第K个类别中，如果是离散特征，则特征$X_j$各个类别取值为$m_{jl}$，其中$l$的取值为$1,2,…,S_j$，$S_j$为特征$j$不同的取值数。</p>
-<script type="math/tex; mode=display">
-\{ (x_{1}^{(1)},x_{2}^{(1)},...,x_{n}^{(1)},y_1),(x_{1}^{(2)},x_{2}^{(2)},...,x_{n}^{(2)},y_2),...,(x_{1}^{(m)},x_{2}^{(m)},...,x_{n}^{(m)},y_m)\}</script><p>预测结果为$X^{(test)}​$的分类，算法流程如下所示</p>
-<ul>
-<li><p>如果没有Y的先验概率，则计算Y的K个先验概率$P(Y=C_k)=\frac{m_k}{m}$。</p>
-</li>
-<li><p>分别计算第k个类别的第j为特征的第l个取值条件概率$P(X_j=x_{jl}|Y=C_k)$。</p>
-<ul>
-<li>如果是离散值，则公式如下所示，其中$\lambda$为大于0的常数，常常取为1，$O_j$为第j个特征的取值个数。</li>
-</ul>
-<script type="math/tex; mode=display">
-P(X_j=x_{jl}|Y=C_k)=\frac{x_{jl}+\lambda}{m_k+O_j \lambda}</script><ul>
-<li>如果是稀疏离散值，则公式如下所示，此时$l$取值为0或1。</li>
-</ul>
-<script type="math/tex; mode=display">
-P(X_j=x_{jl}|Y=C_k)=P(X_j|Y=C_k)x_{jl}+(1-P(X_j|Y=C_k))(1-x_{jl})</script><ul>
-<li>如果是连续值，则不需要计算各个l个取值概率，直接求正态分布的参数，公式如下所示。$\mu_k$为样本类别$C_k$中所有$X_j$的平均值，$\sigma_{k}^2$为样本类别$C_k$中所有$X_j$的方差。</li>
-</ul>
-<script type="math/tex; mode=display">
-P(X_j=x_j|Y=C_k)=\frac{1}{\sqrt{2 \pi \sigma_k^2}}exp(-\frac{(x_j- \mu_k)^2}{2\sigma_{k}^{2}})</script></li>
-<li><p>对于实例$X^{(test)}$，分别计算</p>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-P(Y=C_k)\prod_{j=1}^{n}P(X_j=X_j^{(test)}|Y=C_k)</script><ul>
-<li>确定实例$X^{(test)}$的分类$C_{result}$</li>
-</ul>
-<script type="math/tex; mode=display">
-C_{result}=\underset{C_k}{\underbrace{\arg\max}} P(Y=C_k)\prod_{j=1}^{n}P(X_j=X_j^{(test)}|Y=C_k)</script><p>从上面计算可以看出，朴素贝叶斯没有复杂的求导和矩阵运算，因此效率很高。但朴素贝叶斯假设数据特征之间相互独立，如果数据特征之间关联性比较强的话，我们尽量不要使用朴素贝叶斯算法，考虑其他分类方法比较好。</p>
-<h3 id="4-Sklearn实现朴素贝叶斯"><a href="#4-Sklearn实现朴素贝叶斯" class="headerlink" title="4.Sklearn实现朴素贝叶斯"></a>4.Sklearn实现朴素贝叶斯</h3><p>利用sklearn自带的iris数据集进行训练，选取70%的数据当作训练集，30%的数据当作测试集。因iris数据集为连续值，所以采用GaussianNB模型，训练后模型得分为0.933333333333。更多关于sklearn.naive_bayes的使用技巧可以访问<a href="http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB" target="_blank" rel="noopener">官方教程</a>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="comment">#load data</span></span><br><span class="line">iris=load_iris()</span><br><span class="line">X=iris.data</span><br><span class="line">y=iris.target</span><br><span class="line">X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=<span class="number">0.3</span>,random_state=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">mnb=GaussianNB()</span><br><span class="line">mnb.fit(X_train,y_train)</span><br><span class="line"></span><br><span class="line">print(mnb.predict(X_test))</span><br><span class="line"><span class="comment"># [0 1 1 0 2 2 2 0 0 2 1 0 2 1 1 0 1 1 0 0 1 1 2 0 2 1 0 0 1 2 1 2 1 2 2 0 1</span></span><br><span class="line"><span class="comment">#  0 1 2 2 0 1 2 1]</span></span><br><span class="line">print(y_test)</span><br><span class="line"><span class="comment"># [0 1 1 0 2 1 2 0 0 2 1 0 2 1 1 0 1 1 0 0 1 1 1 0 2 1 0 0 1 2 1 2 1 2 2 0 1</span></span><br><span class="line"><span class="comment">#  0 1 2 2 0 2 2 1]</span></span><br><span class="line">print(mnb.score(X_test,y_test))</span><br><span class="line"><span class="comment"># 0.933333333333</span></span><br></pre></td></tr></table></figure>
-<h3 id="5-朴素贝叶斯优缺点"><a href="#5-朴素贝叶斯优缺点" class="headerlink" title="5.朴素贝叶斯优缺点"></a>5.朴素贝叶斯优缺点</h3><h4 id="5-1优点"><a href="#5-1优点" class="headerlink" title="5.1优点"></a>5.1优点</h4><ul>
-<li>具有稳定的分类效率。</li>
-<li>对缺失数据不敏感，算法也比较简单。</li>
-<li>对小规模数据表现良好，能处理多分类任务，适合增量式训练。尤其是数据量超出内存后，我们可以一批批的去增量训练。</li>
-</ul>
-<h4 id="5-2缺点"><a href="#5-2缺点" class="headerlink" title="5.2缺点"></a>5.2缺点</h4><ul>
-<li>对输入数据的表达形式比较敏感，需针对不同类型数据采用不同模型。</li>
-<li>由于我们是使用数据加先验概率预测后验概率，所以分类决策存在一定的错误率。</li>
-<li>假设各特征之间相互独立，但实际生活中往往不成立，因此对特征个数比较多或特征之间相关性比较大的数据来说，分类效果可能不是太好。</li>
-</ul>
+\frac{\partial(-ln(P(V)))}{\partial b_i} = \sum_vP(v)P(h_i=1|v)-P(h_i=1|V)</script><script type="math/tex; mode=display">
+\frac{\partial(-ln(P(V)))}{\partial W_{ij}} = \sum_vP(v)P(h_i = 1|v)v_j - P(h_i = 1|V)V_j</script><h3 id="4-RBM推广到DBM"><a href="#4-RBM推广到DBM" class="headerlink" title="4.RBM推广到DBM"></a>4.RBM推广到DBM</h3><p>RBM很容易推广到DBM(深层的RBM)，推广的方法就是加入更多的隐藏层，比如一个三层的DBM如下所示</p>
+<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM" alt="受限玻尔兹曼机器(RBM)之梯度下降法求解图片02">之梯度下降法求解图片02.png)</p>
+<p>当然隐藏层的层数可以是任意的，随着层数的增多，那模型怎么表示呢？其实DBM也可以看作是一个RBM，比如下面一个四层的DBM，稍加变化就可以看作是一个RBM。</p>
+<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/受限玻尔兹曼机器(RBM" alt="受限玻尔兹曼机器(RBM)之梯度下降法求解03">之梯度下降法求解03.png)</p>
+<p>将偶数可见层放在一边，将奇数隐藏层放在另一边，就可以得到RBM，只是现在的RBM并不是全连接的，其实也可以看作部分权重为0的全连接RBM。RBM的算法思想同样可以在DBM上使用，只是此时我们需要求解的模型参数会更多，参数迭代过程中更加复杂。</p>
+<h3 id="5-RBM总结"><a href="#5-RBM总结" class="headerlink" title="5.RBM总结"></a>5.RBM总结</h3><p>上面我们用到梯度下降法求解RBM参数，虽然理论上可以解决RBM的优化，但在实际应用中，由于概率分布的计算量大，有pow(2,nv+nh)种情况，所以往往不能直接按照上面的梯度公式去求所有样本的梯度和。而是用基于MCMC的方法来模拟计算求解每个样本的梯度损失，然后再求梯度和。常用的方法是基于Gibbs采样的对比散度方法，下篇文章我们将来详细介绍。</p>
 <h3 id="6-推广"><a href="#6-推广" class="headerlink" title="6.推广"></a>6.推广</h3><p>更多内容请关注公众号<strong>谓之小一</strong>，若有疑问可在公众号后台提问，随时回答，欢迎关注，内容转载请注明出处。</p>
-<p><img src="/2018/05/14/机器学习之朴素贝叶斯算法/推广.png" alt="推广"></p>
-<p>参考</p>
-<blockquote>
-<p><a href="https://www.cnblogs.com/pinard/p/6069267.html" target="_blank" rel="noopener">刘建平_Pinard-朴素贝叶斯算法原理小结</a></p>
-</blockquote>
+<p><img src="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/推广.png" alt="推广"></p>
 
       
     </div>
@@ -627,6 +601,8 @@ C_{result}=\underset{C_k}{\underbrace{\arg\max}} P(Y=C_k)\prod_{j=1}^{n}P(X_j=X_
           
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
             <a href="/tags/算法/" rel="tag"># 算法</a>
           
         </div>
@@ -640,8 +616,8 @@ C_{result}=\underset{C_k}{\underbrace{\arg\max}} P(Y=C_k)\prod_{j=1}^{n}P(X_j=X_
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/13/机器学习之K近邻-KNN-算法/" rel="next" title="机器学习之K近邻(KNN)算法">
-                <i class="fa fa-chevron-left"></i> 机器学习之K近邻(KNN)算法
+              <a href="/2018/12/15/Gibbs采样/" rel="next" title="Gibbs采样">
+                <i class="fa fa-chevron-left"></i> Gibbs采样
               </a>
             
           </div>
@@ -649,10 +625,6 @@ C_{result}=\underset{C_k}{\underbrace{\arg\max}} P(Y=C_k)\prod_{j=1}^{n}P(X_j=X_
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/18/机器学习之Apriori算法/" rel="prev" title="机器学习之Apriori算法">
-                机器学习之Apriori算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -889,7 +861,7 @@ C_{result}=\underset{C_k}{\underbrace{\arg\max}} P(Y=C_k)\prod_{j=1}^{n}P(X_j=X_
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-朴素贝叶斯简介"><span class="nav-text">1.朴素贝叶斯简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-朴素贝叶斯算法模型"><span class="nav-text">2.朴素贝叶斯算法模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1统计知识回顾"><span class="nav-text">2.1统计知识回顾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2朴素贝叶斯模型"><span class="nav-text">2.2朴素贝叶斯模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3朴素贝叶斯推断"><span class="nav-text">2.3朴素贝叶斯推断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4朴素贝叶斯参数估计"><span class="nav-text">2.4朴素贝叶斯参数估计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-朴素贝叶斯算法流程"><span class="nav-text">3.朴素贝叶斯算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Sklearn实现朴素贝叶斯"><span class="nav-text">4.Sklearn实现朴素贝叶斯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-朴素贝叶斯优缺点"><span class="nav-text">5.朴素贝叶斯优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1优点"><span class="nav-text">5.1优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2缺点"><span class="nav-text">5.2缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-推广"><span class="nav-text">6.推广</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-RBM模型结构"><span class="nav-text">1.RBM模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-RBM概率分布"><span class="nav-text">2.RBM概率分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-RBM模型参数求解"><span class="nav-text">3.RBM模型参数求解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-RBM推广到DBM"><span class="nav-text">4.RBM推广到DBM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-RBM总结"><span class="nav-text">5.RBM总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-推广"><span class="nav-text">6.推广</span></a></li></ol></div>
             
 
           </div>
