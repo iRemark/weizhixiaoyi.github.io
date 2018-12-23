@@ -359,209 +359,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoYi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谓之小一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/" itemprop="url">
-                  受限玻尔兹曼机器(RBM)之梯度下降法求解
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-22 15:20:45" itemprop="dateCreated datePublished" datetime="2018-12-22T15:20:45+08:00">2018-12-22</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/" class="leancloud_visitors" data-flag-title="受限玻尔兹曼机器(RBM)之梯度下降法求解">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3.6k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">6 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          前面我们讲到深度学习的两类神经网络模型的原理，包括前向神经网络和有反馈的神经网络。前向神经网络包括深度神经网络和卷积神经网络，有反馈的神经网络包括循环神经网络和LSTM神经网络。本篇文章，我们来了解第三类神经网络模型：玻尔兹曼机。
-1.RBM模型结构玻尔兹曼机是一类神经网络模型，但在实际应用中使用最多的是受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)。RBM模型本身很简单，只是一个两层的神经网络，因此严格意义上不算是深度学习的范畴。
-RBM包含两层，隐藏层(hidden layer)和可见层(visible layer)。隐藏层和可见层之间是全连接的，这点和DNN类似。不同的是RBM不分前向和后向，可见层的状态可以作用于隐藏层，隐藏层的状态也可以作用于可见层。常用的RBM一般是二值的，即不管隐藏层还是可见层，他们的神经元的取值只为0或1。本文只讨论二值RBM，模型结构如下所示。
-
-其中下层表示可见层，用v向量表示可见层神经元的值，a向量表示可见层的偏倚系数。上层表示隐藏层，用h向量表示隐藏层神经元的值，b向量表示隐藏层神经元的偏倚系数。两者的连接权
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/22/受限玻尔兹曼机器-RBM-之梯度下降法求解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/12/15/Gibbs采样/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1971,6 +1768,207 @@ RNN假设输入样本是基于序列的，比如是从序列索引1到序列索�
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/10/14/卷积神经网络之前向传播算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谓之小一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/14/卷积神经网络之前向传播算法/" itemprop="url">
+                  卷积神经网络之前向传播算法
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-14 16:35:28" itemprop="dateCreated datePublished" datetime="2018-10-14T16:35:28+08:00">2018-10-14</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/14/卷积神经网络之前向传播算法/" class="leancloud_visitors" data-flag-title="卷积神经网络之前向传播算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">5.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">8 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          0.杂谈本来个人是准备毕业直接工作的，但前段时间学校保研大名单出来之后，发现本人有保研机会，于是就和主管请了几天假，回学校准备保研的事情。经过两天的准备，也是非常幸运，成功拿到本院的保研名额。明确得到保研名额的时候已经是9月18号，然而国家推免系统开放时间是9月28号，也就是说我只还有10天时间准备保研，而且这个时间点很多学校夏令营、预报名活动早已结束，不再接受学生申请。所以能够申请的学校也就很少，同时这10天之间，还要赶回北京实习，所以时间还是很赶的。
+短短10天，发生了很多有趣的事情，但不论怎样，最后的结果还是很不错的，成功保研到华中科技大学，全国排名前10左右的高校，而且计算机很强 。但华科要求，本科非985高校不允许读学硕，只能读专硕。我倒觉得无所谓，反正不准备继续读博，学硕、专硕没有太大区别。
+被华科预录取之后，导师要求提前到实验室学习，于是10月10号便来到实验室搬砖。怎么说呢，感觉还是挺累的，比工作还累，早9晚10。但确实能够学习到很多东西，实验室环境很不错，每人一台电脑，等等福利都很好。至此，一直准备工作的我，成功走上读研之路，加油啦。前段时间一直想写篇关于从双非到98
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/14/卷积神经网络之前向传播算法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2022,7 +2020,7 @@ RNN假设输入样本是基于序列的，比如是从序列索引1到序列索�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2192,7 +2190,7 @@ RNN假设输入样本是基于序列的，比如是从序列索引1到序列索�
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">274k</span>
+    <span title="站点总字数">271k</span>
   
 
   
