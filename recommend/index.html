@@ -121,31 +121,24 @@
 
 
 
-  <meta name="description" content="1.MCMC简介马尔可夫链蒙克卡罗(Markov Chain Monte Carlo,MCMC)是一种随机采样方法，在机器学习、深度学习及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础，例如受限玻尔兹曼机(RBM)便是用MCMC来做一些复杂算法的近似求解。在具体讲解什么是MCMC之前，我们先看看MCMC可以解决什么样的问题，为什么需要MCMC方法。 2. 为什么需要MCMC?假如我们需">
-<meta name="keywords" content="数学基础">
-<meta property="og:type" content="article">
-<meta property="og:title" content="马尔科夫链蒙特卡罗(Markov Chain Monte Carlo)(一)">
-<meta property="og:url" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/index.html">
+  <meta name="description" content="1.数据挖掘 Python之NunPy使用教程 Python之Pandas使用教程 Python之MatPlotLib使用教程 Python之Sklearn使用教程  2.机器学习 机器学习知识体系 机器学习之线性回归 机器学习之Logistic回归 机器学习之SVM支持向量机（一） 机器学习之SVM支持向量机（二） 机器学习之决策树(C4.5算法) 机器学习之分类与回归树(CART) 机器学习之">
+<meta property="og:type" content="website">
+<meta property="og:title" content="推荐">
+<meta property="og:url" content="https://weizhixiaoyi.com/recommend/index.html">
 <meta property="og:site_name" content="谓之小一">
-<meta property="og:description" content="1.MCMC简介马尔可夫链蒙克卡罗(Markov Chain Monte Carlo,MCMC)是一种随机采样方法，在机器学习、深度学习及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础，例如受限玻尔兹曼机(RBM)便是用MCMC来做一些复杂算法的近似求解。在具体讲解什么是MCMC之前，我们先看看MCMC可以解决什么样的问题，为什么需要MCMC方法。 2. 为什么需要MCMC?假如我们需">
+<meta property="og:description" content="1.数据挖掘 Python之NunPy使用教程 Python之Pandas使用教程 Python之MatPlotLib使用教程 Python之Sklearn使用教程  2.机器学习 机器学习知识体系 机器学习之线性回归 机器学习之Logistic回归 机器学习之SVM支持向量机（一） 机器学习之SVM支持向量机（二） 机器学习之决策树(C4.5算法) 机器学习之分类与回归树(CART) 机器学习之">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片01.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片02.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片03.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片04.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/推广.png">
-<meta property="og:updated_time" content="2018-12-01T13:36:12.532Z">
+<meta property="og:updated_time" content="2018-12-23T06:15:40.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="马尔科夫链蒙特卡罗(Markov Chain Monte Carlo)(一)">
-<meta name="twitter:description" content="1.MCMC简介马尔可夫链蒙克卡罗(Markov Chain Monte Carlo,MCMC)是一种随机采样方法，在机器学习、深度学习及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础，例如受限玻尔兹曼机(RBM)便是用MCMC来做一些复杂算法的近似求解。在具体讲解什么是MCMC之前，我们先看看MCMC可以解决什么样的问题，为什么需要MCMC方法。 2. 为什么需要MCMC?假如我们需">
-<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片01.png">
+<meta name="twitter:title" content="推荐">
+<meta name="twitter:description" content="1.数据挖掘 Python之NunPy使用教程 Python之Pandas使用教程 Python之MatPlotLib使用教程 Python之Sklearn使用教程  2.机器学习 机器学习知识体系 机器学习之线性回归 机器学习之Logistic回归 机器学习之SVM支持向量机（一） 机器学习之SVM支持向量机（二） 机器学习之决策树(C4.5算法) 机器学习之分类与回归树(CART) 机器学习之">
 
 
 
 
 
 
-  <link rel="canonical" href="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/"/>
+  <link rel="canonical" href="https://weizhixiaoyi.com/recommend/"/>
 
 
 
@@ -155,7 +148,7 @@
   };
 </script>
 
-  <title>马尔科夫链蒙特卡罗(Markov Chain Monte Carlo)(一) | 谓之小一</title>
+  <title>推荐 | 谓之小一</title>
   
 
 
@@ -277,17 +270,9 @@
         
         
           
-          <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+          <li class="menu-item menu-item-recommend menu-item-active">
+    <a href="/recommend/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br />推荐</a>
   </li>
         
         
@@ -357,272 +342,128 @@
           
             
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoYi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谓之小一">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h2 class="post-title" itemprop="name headline">马尔科夫链蒙特卡罗(Markov Chain Monte Carlo)(一)
-              
-            
-          </h2>
-        
+<h2 class="post-title" itemprop="name headline">推荐</h2>
 
-        <div class="post-meta">
-          <span class="post-time">
+<div class="post-meta">
+  
+  
 
-            
-            
-            
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
 
-              
-                
-              
+</div>
 
-              <time title="创建时间：2018-11-24 17:29:21" itemprop="dateCreated datePublished" datetime="2018-11-24T17:29:21+08:00">2018-11-24</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学统计学/" itemprop="url" rel="index"><span itemprop="name">数学统计学</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/" class="leancloud_visitors" data-flag-title="马尔科夫链蒙特卡罗(Markov Chain Monte Carlo)(一)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">5 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
-        <h3 id="1-MCMC简介"><a href="#1-MCMC简介" class="headerlink" title="1.MCMC简介"></a>1.MCMC简介</h3><p><strong>马尔可夫链蒙克卡罗(Markov Chain Monte Carlo,MCMC)</strong>是一种随机采样方法，在机器学习、深度学习及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础，例如受限玻尔兹曼机(RBM)便是用MCMC来做一些复杂算法的近似求解。在具体讲解什么是MCMC之前，我们先看看MCMC可以解决什么样的问题，为什么需要MCMC方法。</p>
-<h3 id="2-为什么需要MCMC"><a href="#2-为什么需要MCMC" class="headerlink" title="2. 为什么需要MCMC?"></a>2. 为什么需要MCMC?</h3><p>假如我们需要对一维随机变量$X$进行随机采样，$X$的样本空间是$\{1,2,3\}$，概率分别是$\{\frac{1}{2},\frac{1}{4},\frac{1}{4}\}$。那么我们只需要根据各离散值的概率大小对[0,1]区间进行等比例划分，例如划分为[0,0.5],[0.5,0.75],[0.75,1]三个区间，然后通过计算机产生[0,1]之间的伪随机数，根据伪随机数的落点便可完成采样。下面问题变得复杂一些，假如$X$是连续分布，概率密度函数(PDF)是$f(X)$，那么如何采样呢。</p>
-<p>你肯定会想到累积分布函数(CDF)，表达式为$P(x) = \int _{-\infty} ^{x} f(x) dx$。然后在[0,1]间随机生成一个数$a$，求使得$x=CDF^{-1}(a)$，此时便可得到一个采样结果。例如以高斯分布为例进行采样，高斯分布的概率密度函数如下所示</p>
-<script type="math/tex; mode=display">
-f(x)= \frac{1}{\sigma \sqrt{2\pi}} exp({- \frac{(x-u)^2}{2 \sigma ^2}})</script><p><img src="/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片01.png" alt="MCMC1图片01"></p>
-<p>累积分布函数如下所示</p>
-<script type="math/tex; mode=display">
-P(x) = \frac{1}{\sigma \sqrt{2\pi}} \int _{ -\infty} ^{x} exp({- \frac{(x-u)^2}{2 \sigma ^2}})dx</script><p><img src="/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片02.png" alt="MCMC1图片02"></p>
-<p>首先通过均匀分布U(0,1)得到一个值a，然后通过累积分布函数的反函数，计算得到满足$ CDF ^{-1}(x) = a$的x，x便是我们需要的采样样本。</p>
-<p>上面针对连续分布采样有两个假设前提：一是概率密度函数可积；二是累积分布函数有反函数。但是上述假设前提不成立怎么办？此时便需要用到下面介绍的MCMC。</p>
-<h3 id="3-蒙特卡罗方法"><a href="#3-蒙特卡罗方法" class="headerlink" title="3.蒙特卡罗方法"></a>3.蒙特卡罗方法</h3><p>我们首先介绍MCMC中的蒙特卡罗(Monte Carlo)方法，蒙特卡罗是一种随机模拟的方法，最初的蒙特卡罗方法是用来求解积分问题，比如</p>
-<script type="math/tex; mode=display">
-\theta = \int _{a} ^{b} f(x) dx</script><p><img src="/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片03.png" alt="MCMC1图片03"></p>
-<p>如果我们很难求解出$f(x)$的原函数，那么这个积分便很难求解，此时我们便利用蒙特卡罗方法来模拟求解近似值，但如何模拟呢？针对上述积分，一个简单的近似求解方法是在[a,b]之间随机的采样一个点，比如$x_0$，然后用$f(x_0)$代表在[a,b]区间上所有$f(x)$的值，那么上面定积分的近似值便为</p>
-<script type="math/tex; mode=display">
-(b-a)f(x_0)</script><p>当然，用一个值来代表[a,b]上面所有$f(x)$的值，这个结果不太准确。因此我们可以采样[a,b]区间的n个值$x_0,x_1,x_3,…,x_{n-1}$，用他们的均值来代表[a,b]区间上所有$f(x)$的值，这样定积分求解的近似值为</p>
-<script type="math/tex; mode=display">
-\frac{b-a}{n} \sum _{i=0}^{n-1}f(x_i)</script><p>虽然上面的方法可以求解近似值，但它隐含一个假设，即x在[a,b]之间是均匀分布的。而大多数情况下，x在[a,b]之间不是均匀分布的，如果继续用上面的方法，模拟求出的结果很可能和结果相差甚远，那怎么解决这个问题呢？如果我们可以得到x在[a,b]的概率分布函数p(x)，那么我们的定积分求和可以转换为</p>
-<script type="math/tex; mode=display">
-\theta = \int _{a} ^{b} f(x) dx = \int _{a} ^{b} \frac{f(x)}{p(x)}p(x)dx \approx \frac{1}{n} \sum_{i=0}^{n-1}\frac{f(x_i)}{p(x_i)}</script><p>上述是蒙特卡罗连续函数的形式，当然在<strong>离散时一样成立</strong>。可以看出，最上面我们假设x在[a,b]之间时均匀分布的时候$p(x_i)=\frac{1}{b-a}$，带入我们有概率分布的蒙特卡罗积分，可以得到</p>
-<script type="math/tex; mode=display">
-\frac{1}{n}\sum _{i=0}^{n-1} \frac{f(x_i)}{1/(b-a)} = \frac{b-a}{n} \sum_{i=0}^{n-1}f(x_i)</script><p>也就是说，最上面的均匀分布可以作为一般概率分布函数p(x)在均匀分布时候的特例，那么现在问题便转换为<strong>如何求出x的分布p(x)对应的若干个样本上来</strong>。</p>
-<h3 id="4-概率分布采样"><a href="#4-概率分布采样" class="headerlink" title="4.概率分布采样"></a>4.概率分布采样</h3><p>上面讲到蒙特卡罗方法的关键是得到x的概率分布p(x)，如果求出了x的概率分布，便可以基于这个概率分布去采样n个x的样本集，然后带入蒙特卡罗求和的方程式便可以求解。当然，上面的关键问题还没有解决，即如何基于概率分布去采样n个x的样本集。</p>
-<p>对于常见的均匀分布uniform(0,1)是非常容易采集样本的，一般通过线性同余发生器便可以很方便的生成(0,1)之间的伪随机数样本。对于常见的概率分布，无论是离散的分布还是连续的分布，都可以通过uniform(0,1)的样本转换得到。比如二维正态分布的样本(Z1,Z2)，可以通过独立采样得到uniform(0,1)样本对(X1,X2)进行转换得到，转换方程式如下所示</p>
-<script type="math/tex; mode=display">
-Z_1 = \sqrt{-2lnX_1} cos(2\pi X_2)</script><script type="math/tex; mode=display">
-Z_2 = \sqrt{-2lnX_1} sin(2\pi X_2)</script><p>其他的一些常见的连续分布，比如t分布,F分布,Beta分布,Gamma分布等，都可以通过类似的方式从uniform(0,1)得到的样本转换得到。不过很多时候，我们<strong>x的概率分布不是常见的分布</strong>，这意味着我们无法方便的得到这些概率分布的样本集，那这个问题怎么解决呢？</p>
-<h3 id="5-接受-拒绝采样"><a href="#5-接受-拒绝采样" class="headerlink" title="5.接受-拒绝采样"></a>5.接受-拒绝采样</h3><p>对于概率分布不是常见的分布，一个可行的方法是采用接受-拒绝采样来得到该分布的样本。既然p(x)太复杂在程序中没法直接采样，那么我们设定一个可采样的分布q(x)，比如高斯分布，然后按照一定的方法拒绝某些样本，以达到接近p(x)分布的目的，其中q(x)叫做建议分布(proposal distribution)。</p>
-<p><img src="/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片04.png" alt="MCMC1图片04"></p>
-<p>具体采样过程为，设定一个方便采样的常用概率分布q(x)以及一个常量k，使得p(x)总在kq(x)的下方，即$k<em>q(z) \ge \tilde{p}(z)$。首先从建议分布q(z)中采样得到样本z，然后从均匀分布U(0,1)中采样得到样本u，如果$u \le \frac{ \tilde{p}(z)}{c</em>q(z)}$，则接受此次采样，否则拒绝此次采样。整个过程中，我们通过一系列接受-拒绝采样的决策来达到用q(x)模拟p(x)概率分布的目的。</p>
-<h3 id="6-蒙特卡罗方法总结"><a href="#6-蒙特卡罗方法总结" class="headerlink" title="6.蒙特卡罗方法总结"></a>6.蒙特卡罗方法总结</h3><p>使用接受-拒绝采样，可以解决一些概率分布不是常见分布的情况，然后得到采样集，最后用蒙特卡罗方法求和。但是接受-拒绝采样只能部分满足我们的情况，在很多时候我们还是很难得到概率分布的样本集，比如</p>
-<ul>
-<li>对于一些二维分布(x,y)，有些时候只能得到条件概率分布p(x|y)和p(y|x)，却很难得到二维分布p(x,y)，这时便无法采用接受拒绝采样得到其样本集。</li>
-<li>对于一些高维的复杂分布p(x1,x2,x3,…,xn)，得到合适的q(x)和k非常困难。</li>
+      <div class="post-body">
+        
+        
+          <h3 id="1-数据挖掘"><a href="#1-数据挖掘" class="headerlink" title="1.数据挖掘"></a>1.数据挖掘</h3><ul>
+<li><a href="https://weizhixiaoyi.com/2018/03/13/Python%E4%B9%8BNumPy%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Python之NunPy使用教程</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/03/12/Python%E4%B9%8BPandas%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Python之Pandas使用教程</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/03/14/Python%E4%B9%8BMatPlotLib%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Python之MatPlotLib使用教程</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/04/15/Python%E4%B9%8BSklearn%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Python之Sklearn使用教程</a></li>
 </ul>
-<p>从上面可以看出，要将蒙特卡罗方法作为通用的采样模拟求和方法，必须解决如何方便得到<strong>各种复杂概率分布的对应采样样本</strong>的问题。下篇文章，我们将通过介绍马尔可夫链，来帮助我们找到这些复杂概率分布所对应的采样样本集。</p>
-<h3 id="7-推广"><a href="#7-推广" class="headerlink" title="7.推广"></a>7.推广</h3><p>更多内容请关注公众号<strong>谓之小一</strong>，若有疑问可在公众号后台提问，随时回答，欢迎关注，内容转载请注明出处。</p>
-<p><img src="/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/推广.png" alt="推广"></p>
+<h3 id="2-机器学习"><a href="#2-机器学习" class="headerlink" title="2.机器学习"></a>2.机器学习</h3><ul>
+<li><a href="https://weizhixiaoyi.com/2018/03/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">机器学习知识体系</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/03/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">机器学习之线性回归</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/03/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8BLogistic%E5%9B%9E%E5%BD%92/">机器学习之Logistic回归</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/03/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8BSVM%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%EF%BC%88%E4%B8%80%EF%BC%89/">机器学习之SVM支持向量机（一）</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/04/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8BSVM%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%EF%BC%88%E4%BA%8C%EF%BC%89/">机器学习之SVM支持向量机（二）</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/04/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%86%B3%E7%AD%96%E6%A0%91-C4-5%E7%AE%97%E6%B3%95/">机器学习之决策树(C4.5算法)</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/04/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%88%86%E7%B1%BB%E4%B8%8E%E5%9B%9E%E5%BD%92%E6%A0%91-CART/">机器学习之分类与回归树(CART)</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/04/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/">机器学习之随机森林</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/04/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91-GBDT/">机器学习之梯度提升决策树(GBDT)</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/05/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%87%AA%E9%80%82%E5%BA%94%E5%A2%9E%E5%BC%BA-Adaboost/">机器学习之自适应增强(Adaboost)</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/05/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%9C%80%E5%A4%A7%E6%9C%9F%E6%9C%9B-EM-%E7%AE%97%E6%B3%95/">机器学习之最大期望(EM)算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/05/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8BK%E5%9D%87%E5%80%BC-K-Means-%E7%AE%97%E6%B3%95/">机器学习之K均值(K-Means)算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/05/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8BK%E8%BF%91%E9%82%BB-KNN-%E7%AE%97%E6%B3%95/">机器学习之K近邻(KNN)算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/05/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95/">机器学习之朴素贝叶斯算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/05/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95/">机器学习之Apriori算法</a></li>
+</ul>
+<h3 id="3-深度学习"><a href="#3-深度学习" class="headerlink" title="3.深度学习"></a>3.深度学习</h3><ul>
+<li><a href="https://weizhixiaoyi.com/2018/06/27/%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B9%8B%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/">深度神经网络之前向传播算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/06/27/%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B9%8B%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/">深度神经网络之反向传播算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/06/30/%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B9%8B%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/">深度神经网络之损失函数和激活函数</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/07/03/%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B9%8B%E6%AD%A3%E5%88%99%E5%8C%96/">深度神经网络之正则化</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/10/14/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B9%8B%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/">卷积神经网络之前向传播算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/10/21/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B9%8B%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/">卷积神经网络之反向传播算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/10/24/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B9%8B%E5%89%8D%E5%90%91%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/">循环神经网络之前向反向传播算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/11/12/LSTM%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B9%8B%E5%89%8D%E5%90%91%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/">LSTM神经网络之前向反向传播算法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/12/22/%E5%8F%97%E9%99%90%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E6%9C%BA%E5%99%A8-RBM-%E4%B9%8B%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E6%B1%82%E8%A7%A3/">受限玻尔兹曼机器之梯度下降法求解</a></li>
+</ul>
+<h3 id="4-数学统计学"><a href="#4-数学统计学" class="headerlink" title="4.数学统计学"></a>4.数学统计学</h3><ul>
+<li><a href="https://weizhixiaoyi.com/2018/11/24/MCMC%E4%B9%8B%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%96%B9%E6%B3%95/">MCMC之蒙特卡罗方法</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/12/01/MCMC%E4%B9%8B%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/">MCMC之马尔可夫链</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/12/15/MCMC%E9%87%87%E6%A0%B7%E5%92%8CM-H%E9%87%87%E6%A0%B7/">MCMC采样和M-H采样</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/12/15/Gibbs%E9%87%87%E6%A0%B7/">Gibbs采样</a></li>
+</ul>
+<h3 id="5-教程"><a href="#5-教程" class="headerlink" title="5.教程"></a>5.教程</h3><ul>
+<li><a href="https://weizhixiaoyi.com/2018/03/16/Mac+Hexo+GitHub%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">Mac+Hexo+GitHub搭建博客教程</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/03/18/Markdown%E5%86%99%E4%BD%9C%E6%95%99%E7%A8%8B/">Markdown写作教程</a></li>
+</ul>
+<h3 id="6-其他"><a href="#6-其他" class="headerlink" title="6.其他"></a>6.其他</h3><ul>
+<li><a href="https://weizhixiaoyi.com/2018/06/10/%E7%BD%91%E5%BA%97%E5%B7%A5%E5%95%86%E4%BF%A1%E6%81%AF%E5%9B%BE%E7%89%87%E6%96%87%E5%AD%97%E6%8F%90%E5%8F%96/">网店工商信息图片文字提取</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/06/12/%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90%EF%BC%88%E4%B8%80%EF%BC%89/">效率软件推荐(一) </a></li>
+<li><a href="https://weizhixiaoyi.com/2018/08/14/%E5%9F%BA%E4%BA%8Egoogle-protobuf%E7%9A%84gRPC%E5%AE%9E%E7%8E%B0-python%E7%89%88/">基于google protobuf的gRPC实现</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/08/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux常用命令</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/07/29/%E3%80%8A%E5%89%91%E6%8C%87Offer%E3%80%8BPython%E7%89%88/">《剑指Offer》Python版</a></li>
+<li><a href="https://weizhixiaoyi.com/2018/08/27/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E9%94%81%E7%9A%84%E6%A6%82%E5%BF%B5/">进程、线程、锁的概念</a></li>
+</ul>
 
+        
+      </div>
+      
+      
       
     </div>
-
     
 
+
+
     
     
     
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/数学基础/" rel="tag"># 数学基础</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/11/12/LSTM神经网络之前向反向传播算法/" rel="next" title="LSTM神经网络之前向反向传播算法">
-                <i class="fa fa-chevron-left"></i> LSTM神经网络之前向反向传播算法
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDgwNS8xMTM0Mg=="></div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -672,7 +513,7 @@ Z_2 = \sqrt{-2lnX_1} sin(2\pi X_2)</script><p>其他的一些常见的连续分�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -826,7 +667,7 @@ Z_2 = \sqrt{-2lnX_1} sin(2\pi X_2)</script><p>其他的一些常见的连续分�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-MCMC简介"><span class="nav-text">1.MCMC简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-为什么需要MCMC"><span class="nav-text">2. 为什么需要MCMC?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-蒙特卡罗方法"><span class="nav-text">3.蒙特卡罗方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-概率分布采样"><span class="nav-text">4.概率分布采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-接受-拒绝采样"><span class="nav-text">5.接受-拒绝采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-蒙特卡罗方法总结"><span class="nav-text">6.蒙特卡罗方法总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-推广"><span class="nav-text">7.推广</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据挖掘"><span class="nav-text">1.数据挖掘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-机器学习"><span class="nav-text">2.机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-深度学习"><span class="nav-text">3.深度学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-数学统计学"><span class="nav-text">4.数学统计学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-教程"><span class="nav-text">5.教程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-其他"><span class="nav-text">6.其他</span></a></li></ol></div>
             
 
           </div>
@@ -858,7 +699,7 @@ Z_2 = \sqrt{-2lnX_1} sin(2\pi X_2)</script><p>其他的一些常见的连续分�
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">260k</span>
+    <span title="站点总字数">274k</span>
   
 
   
@@ -1022,17 +863,6 @@ Z_2 = \sqrt{-2lnX_1} sin(2\pi X_2)</script><p>其他的一些常见的连续分�
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 
@@ -1509,30 +1339,6 @@ Z_2 = \sqrt{-2lnX_1} sin(2\pi X_2)</script><p>其他的一些常见的连续分�
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
   
 
 
