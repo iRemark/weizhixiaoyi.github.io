@@ -121,32 +121,29 @@
 
 
 
-  <meta name="description" content="1.正则化之前介绍的文章之中，我们已多次接触到正则化方法，但没有详细的解释为什么要正则化，什么是正则化，以及L1正则化和L2正则化的区别。本次文章之中，我们将详解机器学习中正则化的概念和深度神经网络中的正则化方法。 1.1 为什么要正则化？讲到为什么需要正则化，就需要了解什么是过拟合问题。以下面图片为例，我们能够看到有两个类别，其中以X代表男生，O代表女生。  我们想要通过学习来得到分类曲线，其中">
-<meta name="keywords" content="机器学习,深度学习,算法">
+  <meta name="description" content="奇异值分解(Singular Value Decompostion, SVD)是在机器学习领域广泛应用的算法，不光可以用于降维算法中的特征分解，还可以用于推荐系统，以及自然语言处理等领域，是很多机器学习算法的基石。本篇文章对SVD原理做主要讲解，在学习之前，确保你已经熟悉线性代数中的基本知识，包括特征值、特征向量、相似矩阵相关知识点。如果不太熟悉的话，推荐阅读如下两篇文章，如何理解矩阵特征值？知乎">
+<meta name="keywords" content="机器学习,算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度神经网络之正则化">
-<meta property="og:url" content="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/index.html">
+<meta property="og:title" content="机器学习降维之奇异值分解(SVD)">
+<meta property="og:url" content="https://weizhixiaoyi.com/2018/12/31/机器学习降维之奇异值分解-SVD/index.html">
 <meta property="og:site_name" content="谓之小一">
-<meta property="og:description" content="1.正则化之前介绍的文章之中，我们已多次接触到正则化方法，但没有详细的解释为什么要正则化，什么是正则化，以及L1正则化和L2正则化的区别。本次文章之中，我们将详解机器学习中正则化的概念和深度神经网络中的正则化方法。 1.1 为什么要正则化？讲到为什么需要正则化，就需要了解什么是过拟合问题。以下面图片为例，我们能够看到有两个类别，其中以X代表男生，O代表女生。  我们想要通过学习来得到分类曲线，其中">
+<meta property="og:description" content="奇异值分解(Singular Value Decompostion, SVD)是在机器学习领域广泛应用的算法，不光可以用于降维算法中的特征分解，还可以用于推荐系统，以及自然语言处理等领域，是很多机器学习算法的基石。本篇文章对SVD原理做主要讲解，在学习之前，确保你已经熟悉线性代数中的基本知识，包括特征值、特征向量、相似矩阵相关知识点。如果不太熟悉的话，推荐阅读如下两篇文章，如何理解矩阵特征值？知乎">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片01.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片02.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片03.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片04.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片05.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/推广.png">
-<meta property="og:updated_time" content="2018-07-04T03:06:45.367Z">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/31/机器学习降维之奇异值分解-SVD/机器学习降维之奇异值分解SVD图片01.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/31/机器学习降维之奇异值分解-SVD/机器学习降维之奇异值分解SVD图片02.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/12/31/机器学习降维之奇异值分解-SVD/推广.png">
+<meta property="og:updated_time" content="2019-01-01T12:34:55.762Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度神经网络之正则化">
-<meta name="twitter:description" content="1.正则化之前介绍的文章之中，我们已多次接触到正则化方法，但没有详细的解释为什么要正则化，什么是正则化，以及L1正则化和L2正则化的区别。本次文章之中，我们将详解机器学习中正则化的概念和深度神经网络中的正则化方法。 1.1 为什么要正则化？讲到为什么需要正则化，就需要了解什么是过拟合问题。以下面图片为例，我们能够看到有两个类别，其中以X代表男生，O代表女生。  我们想要通过学习来得到分类曲线，其中">
-<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片01.png">
+<meta name="twitter:title" content="机器学习降维之奇异值分解(SVD)">
+<meta name="twitter:description" content="奇异值分解(Singular Value Decompostion, SVD)是在机器学习领域广泛应用的算法，不光可以用于降维算法中的特征分解，还可以用于推荐系统，以及自然语言处理等领域，是很多机器学习算法的基石。本篇文章对SVD原理做主要讲解，在学习之前，确保你已经熟悉线性代数中的基本知识，包括特征值、特征向量、相似矩阵相关知识点。如果不太熟悉的话，推荐阅读如下两篇文章，如何理解矩阵特征值？知乎">
+<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/12/31/机器学习降维之奇异值分解-SVD/机器学习降维之奇异值分解SVD图片01.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/"/>
+  <link rel="canonical" href="https://weizhixiaoyi.com/2018/12/31/机器学习降维之奇异值分解-SVD/"/>
 
 
 
@@ -156,7 +153,7 @@
   };
 </script>
 
-  <title>深度神经网络之正则化 | 谓之小一</title>
+  <title>机器学习降维之奇异值分解(SVD) | 谓之小一</title>
   
 
 
@@ -370,7 +367,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/">
+    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/12/31/机器学习降维之奇异值分解-SVD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XiaoYi">
@@ -387,7 +384,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">深度神经网络之正则化
+          <h2 class="post-title" itemprop="name headline">机器学习降维之奇异值分解(SVD)
               
             
           </h2>
@@ -412,7 +409,7 @@
                 
               
 
-              <time title="创建时间：2018-07-03 09:58:46" itemprop="dateCreated datePublished" datetime="2018-07-03T09:58:46+08:00">2018-07-03</time>
+              <time title="创建时间：2018-12-31 17:00:42" itemprop="dateCreated datePublished" datetime="2018-12-31T17:00:42+08:00">2018-12-31</time>
             
 
             
@@ -430,7 +427,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
 
                 
                 
@@ -444,7 +441,7 @@
 
           
           
-             <span id="/2018/07/03/深度神经网络之正则化/" class="leancloud_visitors" data-flag-title="深度神经网络之正则化">
+             <span id="/2018/12/31/机器学习降维之奇异值分解-SVD/" class="leancloud_visitors" data-flag-title="机器学习降维之奇异值分解(SVD)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -469,7 +466,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5k</span>
+                <span title="本文字数">5.3k</span>
               
 
               
@@ -483,7 +480,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">8 分钟</span>
+                <span title="阅读时长">9 分钟</span>
               
             </div>
           
@@ -503,71 +500,173 @@
       
 
       
-        <h3 id="1-正则化"><a href="#1-正则化" class="headerlink" title="1.正则化"></a>1.正则化</h3><p>之前介绍的<a href="https://mp.weixin.qq.com/s/UeEL1rOdjMpaKqTFpclS3A" target="_blank" rel="noopener">文章</a>之中，我们已多次接触到正则化方法，但没有详细的解释为什么要正则化，什么是正则化，以及L1正则化和L2正则化的区别。本次文章之中，我们将详解机器学习中正则化的概念和深度神经网络中的正则化方法。</p>
-<h4 id="1-1-为什么要正则化？"><a href="#1-1-为什么要正则化？" class="headerlink" title="1.1 为什么要正则化？"></a>1.1 为什么要正则化？</h4><p>讲到为什么需要正则化，就需要了解什么是过拟合问题。以下面图片为例，我们能够看到有两个类别，其中以X代表男生，O代表女生。</p>
-<p><img src="/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片01.png" alt="深度神经网络之正则化图片01"></p>
-<p>我们想要通过学习来得到分类曲线，其中分类曲线能够有效区分男生和女生，现在来分析下上面的三种分类结果。</p>
-<ul>
-<li><strong>欠拟合：</strong>图1分类明显欠缺，有些男生被分为女生，有些女生被分为男生。</li>
-<li><strong>正拟合：</strong>图2虽然有两个男生被分类为女生，但能够理解，毕竟我们人类自己也有分类错误的情况，比如通过化妆，女装等方法。</li>
-<li><strong>过拟合：</strong>图3虽然能够全部分类正确，但结果全部正确就一定好吗？不一定，我们能够看到分类曲线明显过于复杂，模型学习的时候学习了过多的参数项，但其中某些参数项是无用的特征，比如<strong>眼睛大小</strong>。当我们进行识别测试集数据时，就需要提供更多的特征，如果测试集包含海量的数据，模型的时间复杂度可想而知。</li>
-</ul>
-<h4 id="1-2-什么是正则化？"><a href="#1-2-什么是正则化？" class="headerlink" title="1.2 什么是正则化？"></a>1.2 什么是正则化？</h4><p>既然我们已经知道什么是过拟合，那么怎么解决过拟合问题呢？上面有介绍到，模型出现过拟合，是在模型<strong>特征</strong>上过于复杂。而特征又包含在我们的目标函数f(x)之中，那么只能从目标函数f(x)中寻找解决问题的方法。假设目标函数f(x)和损失函数J0为</p>
+        <p><strong>奇异值分解(Singular Value Decompostion, SVD)</strong>是在机器学习领域广泛应用的算法，不光可以用于降维算法中的特征分解，还可以用于推荐系统，以及自然语言处理等领域，是很多机器学习算法的基石。本篇文章对SVD原理做主要讲解，在学习之前，确保你已经熟悉线性代数中的基本知识，包括特征值、特征向量、相似矩阵相关知识点。如果不太熟悉的话，推荐阅读如下两篇文章，<a href="https://www.zhihu.com/question/21874816" target="_blank" rel="noopener">如何理解矩阵特征值？知乎马同学的回答</a>和<a href="https://www.matongxue.com/madocs/491.html" target="_blank" rel="noopener">如何理解相似矩阵？马同学高等数学</a>，读完之后再看本篇文章会有很大帮助。</p>
+<h3 id="1-回顾特征值和特征向量"><a href="#1-回顾特征值和特征向量" class="headerlink" title="1. 回顾特征值和特征向量"></a>1. 回顾特征值和特征向量</h3><p>我们首先回顾下特征值和特征向量的定义，如下所示。其中A是一个n×n的矩阵，x是一个n维向量，则我们说λ是矩阵A的一个特征值，x是矩阵A的特征值λ所对应的特征向量。但是求出特征值和特征向量有什么好处呢?</p>
 <script type="math/tex; mode=display">
-f(X)=w_0x_0+w_1x_1+w_2x_3+...+w_nx_n</script><script type="math/tex; mode=display">
-J_0=||f(x)-y||_2^2=||XW-y||^2_2</script><p>对于上式，如果特征项$x_0,x_1,x_2,…,x_n$越多的话，自然$w_0,w_1,w_2,…,w_n$也就越多。想要减少特征的数量，自然减小<strong>N</strong>也就好了。而N影响的是$X=(x_0,x_1,x_2,…,x_n)$和$W=(w_0,w_1,w_2,…,w_n)$两项，那么是从<strong>X</strong>解决问题还是从<strong>W</strong>解决问题呢？</p>
-<p>如果从<strong>X</strong>入手解决问题，但训练过程中我们不知道下一个样本X是什么，会怎样的影响目标函数，所以此路不通。那么<strong>W</strong>如何呢？我们知道W系数是训练过程中通过学习历史数据得到的，和历史数据有关，所以应该可以。现在再回到我们原来的问题，希望减少N的数目，而让N最小化，其实就是让X向量或W向量中项的个数最小化，既然X不行，那么我们可以尝试让W向量中项的个数最小化。如何求解才能让W向量中项的个数最小，我们先简单介绍下0、1、2范数的概念。</p>
-<ul>
-<li><strong>L0范数：</strong>向量中非零元素的个数，记为$||W||_0$。</li>
-<li><strong>L1范数：</strong>绝对值之和，记为$||W||_1$。</li>
-<li><strong>L2范数：</strong>通常意义上的模，记为$||W||_2$。</li>
-</ul>
-<p>所以为了防止过拟合，我们需要让$||W||_0$最小，同时让损失函数$J_0$最小，为了满足两项最小化，可以让$J_0$和$||W||_0$之和最小化。但因为$||W||_0$比较难求(NP难问题)，我们进而可以转化为求$||W||_1$。$||W||_1$是$||W||_0$的最优凸近似，都可以实现<strong>稀疏</strong>，比较容易求解，这也是为什么可以选用$||W||_1$的原因。最后损失函数后面添加的额外项$||W||_1$，也就是我们称作的L1正则化，$\alpha$含义在后面进行讲解。</p>
+Ax = \lambda x</script><p>求出了矩阵A的n个特征值$\lambda_1 \le \lambda_2 \le …\le \lambda_n$，以及这n个特征值所对应的特征向量${w_1,w_2,…,w_n}$，如果这n个特征值线性无关，那么矩阵A就可以用下式的特征分解表示</p>
 <script type="math/tex; mode=display">
-J=J_0+L1=||XW-y||^2_2+\alpha||W||_1</script><p>说完L0范数和L1范数，就不得不提L2范数。L2范数是指先求向量各元素的平方和，然后再进行求平方根，也就是通常意义上的模。同样，对于正则化问题，我们的目标是让W向量中的每个元素都很小，也就是让L2范数最小。L1范数和L2范数的不同点在于，L1范数会让其中某些元素等于0，而L2范数只是让其中元素接近0，这里有很大不同，我们在后面会进行详细讲解。最后损失函数后面添加的额外项||W||2，也就是我们称作的L2正则化。</p>
+A = W \Sigma W^{-1}</script><p>其中Σ是以这n个特征值为主对角线的n×n维矩阵，W是这n个特征向量所组成的n×n维矩阵。一般我们会把W的这n个特征向量标准化，即满足$||w_i||_2 = 1$，或者说$w_i^Tw_i = 1$，此时W的n个特征向量为标准正交基，满足$W^TW = I$，即$W^T = W^{-1}$，也就是说W为酉矩阵。这样我们的特征分解便可写作</p>
 <script type="math/tex; mode=display">
-J=J_0+L2=||XW-y||^2_2+\alpha ||W||_2</script><h4 id="1-3-L1正则化和L2正则化"><a href="#1-3-L1正则化和L2正则化" class="headerlink" title="1.3 L1正则化和L2正则化"></a>1.3 L1正则化和L2正则化</h4><p><strong>L1正则化</strong>可以产生稀疏值矩阵，即产生一个稀疏模型，可以用于特征选择和解决过拟合。那什么是稀疏值矩阵呢？稀疏矩阵是矩阵中很多元素为0，只有少数元素是非零值的矩阵，稀疏矩阵的好处就是能够帮助模型找到重要特征，而去掉无用特征或影响甚小的特征。</p>
-<p>比如在分类或预测时，很多特征难以选择，如果代入稀疏矩阵，能够筛选出少数对目标函数有贡献的特征，去掉绝大部分贡献很小或没有贡献的特征(因为稀疏矩阵很多值是0或是很小值)。因此我们只需要关注系数是非零值的特征，从而达到特征选择和解决过拟合的问题。那么为什么L1正则化可以产生稀疏模型呢？</p>
-<p>假如带有L1正则化的损失函数方程如下所示，其中$J_0$是原始损失函数，$\alpha \sum_{w}|w|$是正则化项，$\alpha$是正则化系数。根据1.2节的介绍，可以采用一定的方法，比如梯度下降法，求出在L1的约束下$J_0$的最小值。</p>
+A = W \Sigma W^T</script><p>上面矩阵能够进行特征分解，需要满足矩阵A必须为方阵。那么如果A不是方阵，即行和列不相同时，我们还可以进行矩阵分解吗？</p>
+<h3 id="2-奇异值分解-SVD"><a href="#2-奇异值分解-SVD" class="headerlink" title="2. 奇异值分解(SVD)"></a>2. 奇异值分解(SVD)</h3><p>当矩阵A不是方阵时，可以用奇异值进行分解，假设我们的的矩阵A时一个m×n的矩阵，那么我们定义矩阵A的SVD为</p>
 <script type="math/tex; mode=display">
-J=J_0+L_1=J_0+\alpha \sum_{w}|w|</script><p>以上述损失函数为例，我们考虑二维的情况，即只有两个权值$w_1$和$w_2$，此时$L1=\alpha(|w|_1+|w|_2)$。对于梯度下降法，求解$J_0$的过程，可以画出如下的等值线。同时L1正则化函数也可以在$w_1,w_2$二维平面上表示出来，即黑色直线所围成的菱形。</p>
-<p><img src="/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片02.png" alt="深度神经网络之正则化图片02"></p>
-<p>从上图可以看出，当J0等值线与L1图形首次相交的点就是最优解，也就是上图中的(0,w)。而对于L1函数有许多突出的点(二维情况下是4个)，J0函数与这些顶点接触的概率远大于与L1其他部分接触的概率，恰好在这些顶点上会有很多权值等于0，这就是为什么L1正则化可以产生稀疏模型，进而可以用于特征选择。最后针对L1正则化再介绍下系数α，其目的是控制L1图形的大小。当α越小，L1的图形越大，α越大，L1图形也就越小。L1图形可以小到在原点附近，这也就是为什么w可以取到很小的原因。</p>
-<p>另外<strong>L2正则化</strong>也可以很好的解决过拟合问题。从上面得知，拟合过程中通常都倾向于让权值尽可能小，最后构造出一个让所有参数都比较小的模型。因为一般认为参数值小的模型比较简单，能够适应于不同的数据集，比如对于目标方程，若参数很大，那么数据只要偏倚一点点，那么对结果的影响就很大。如果参数很小的话，即使数据变化范围比较大，对结果影响也不是很大。相对来说，参数较小的话，对模型的抗扰动能力强。那么为什么L2正则化可以获得很小的参数值呢？我们假设带有L2正则化的损失函数方程如下所示，并对损失函数进行求导。</p>
+A = U \Sigma V^T</script><p>其中U时一个m×m的矩阵，Σ是一个m×n的矩阵，除了主对角线上的元素以外全为0，主对角线上的每个元素都称为奇异值，V时一个n×n的矩阵。U和V都是酉矩阵，即满足</p>
 <script type="math/tex; mode=display">
-J=J_0+L_2=J_0+\frac{\lambda}{2n}\sum_{w}w^2</script><script type="math/tex; mode=display">
-\frac{\partial J}{\partial w}=\frac{\partial J_0}{\partial w}+\frac{\lambda}{n}w</script><script type="math/tex; mode=display">
-\frac{\partial J}{\partial b}=\frac{\partial J_0}{\partial n}</script><p>当利用梯度下降算法进行更新w时，w变化如下所示，其中α是学习速率。</p>
+U^TU=I
+\\
+V^TV = I</script><p>下图可以形象的表示出上述SVD的定义，但我们如何求出SVD分解后的U,Σ,V这三个矩阵呢?</p>
+<p><img src="/2018/12/31/机器学习降维之奇异值分解-SVD/机器学习降维之奇异值分解SVD图片01.png" alt="机器学习降维之奇异值分解SVD图片01"></p>
+<p>如果我们将A的转置和A做矩阵乘法，那么会得到n×n的一个方阵$A^TA$。既然$A^TA$是方阵，那么我们就可以进行特征分解，得到的特征值和特征向量满足下式</p>
 <script type="math/tex; mode=display">
-w\rightarrow w-\alpha \frac{\partial J_0}{\partial w}-\frac{\alpha \lambda}{n}w</script><script type="math/tex; mode=display">
-=(1-\frac{\alpha \lambda}{n})w-\alpha\frac{\partial J_0}{\partial w}</script><p>可以看到在梯度下降算法过程中，w是不断进行减小的，也就是权重衰减，这样也就能得到一个让所有参数都比较小的模型，也就能解决过拟合问题。最后再解释下为什么L2正则化不具有稀疏性的原因，如下图所示，二维平面下L2正则化的函数图形是圆，与L1图形相比，没有了菱角。因此J0与L2接触时，使w1或w2等于0的机率就小了很多，所以L2正则化不具有稀疏性。</p>
-<p><img src="/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片03.png" alt="深度神经网络之正则化图片03"></p>
-<h3 id="2-DNN之L1和L2正则化"><a href="#2-DNN之L1和L2正则化" class="headerlink" title="2.DNN之L1和L2正则化"></a>2.DNN之L1和L2正则化</h3><p>和普通机器学习算法一样，DNN也会遇到过拟合的问题，因此需要考虑泛化。结合我们上面讲到的L1和L2正则化，这里对深度神经网络中的正则化做个总结，其中L1正则化和L2正则化原理类似，这里主要介绍L2正则化方法。通过<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483903&amp;idx=1&amp;sn=4e3f92578399013eba9f203d35afe972&amp;chksm=fcd7d209cba05b1ffc66494ea8008c669e40f3045398695b479aba14e1c425f85b7c8f033c4f#rd" target="_blank" rel="noopener">深度神经网络之前向传播算法</a>的学习，我们知道前向传播过程中损失函数为</p>
+(A^TA)v_i = \lambda_i v_i</script><p>这样我们就可以得到矩阵$A^TA$的n个特征值和对应的n个特征向量v。将$A^TA$的所有特征向量组成一个n×n的矩阵V，就是SVD公式里面的V矩阵，一般我们将V中的每个特征向量叫做A的右奇异向量。</p>
+<p>同样，如果我们将A和A的转置做矩阵乘法，那么会得到m×m的一个方阵$AA^T$。因为$AA^T$是方阵，那么我们就可以进行特征分解，得到的特征值和特征向量满足下式</p>
 <script type="math/tex; mode=display">
-J(W,b)=\frac{1}{2m}\sum _{i=1}^{m}||a^L-y||_2^2</script><p>加入L2正则化后，损失函数如下所示。其中λ是正则化参数，实际使用时需要我们进行调参。</p>
+(AA^T)u_i = \lambda_i u_i</script><p>这样我们就可以得到矩阵$AA^T$的m个特征值和对应的m个特征向量u。将$AA^T$的所有特征向量组成一个m×m的矩阵U，就是SVD公式里面的U矩阵，一般我们将U中的每个特征向量叫做A的左奇异向量。</p>
+<p>U和V都已经求出，现在只有奇异值矩阵Σ没有求出。由于Σ除了对角线上是奇异值，其他位置都是0，因此我们只需要求出每个奇异值σ就可以了。我们注意到</p>
 <script type="math/tex; mode=display">
-J(W,b)=\frac{1}{2m}\sum _{i=1}^{m}||a^L-y||_2^2+\frac{\lambda}{2m}\sum_{l=2}^{L}||w||_2^2</script><p>如果使用上式的损失函数，进行反向传播算法时，流程和没有正则化时的反向传播算法相同。区别在于进行梯度下降时，W更新公式会进行改变。在<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483911&amp;idx=1&amp;sn=bcc0fe6a4a0c20a422f254b3264a5fb8&amp;chksm=fcd7d1f1cba058e7bddefb3d47ba6f87879663c15a5cea5c6653138d0fb1aa9d3454e2ea605a#rd" target="_blank" rel="noopener">深度神经网络之反向传播算法</a>中，W的梯度下降更新公式为</p>
+A = U \Sigma V^T
+\\
+AV =  U \Sigma V^T V
+\\
+AV = U \Sigma
+\\
+Av_i = u_i \sigma_i
+\\
+\sigma_i = \frac{Av_i}{u_i}</script><p>通过上式，我们便可以求出每个奇异值，进而求出奇异值矩阵Σ。</p>
+<p>上面还有一个问题没有细讲，就是我们说$A^TA$的特征向量组成的就是SVD中的V矩阵，$AA^T$的特征向量就是SVD的U矩阵，为什么呢？下面我们做简短证明。</p>
 <script type="math/tex; mode=display">
-W^l=W^l-\alpha \sum_{i=1}^{m} \delta^{i,l}(a^{x,l-1})^T</script><p>加入L2正则化后，W迭代更新公式如下所示</p>
+A = U \Sigma V^T
+\\
+A^T = V \Sigma^T U^T
+\\
+A^TA = V\Sigma^T U^T U \Sigma V^T =  V \Sigma^2V^T</script><p>上式证明中使用到$U^TU = I,\Sigma^T\Sigma = \Sigma^2$，可以看出$A^TA$的特征向量，的确就是SVD中的V矩阵。类似的方法同样可以得到$AA^T$的特征向量，就是SVD中的U矩阵。进一步我们还可以看出特征值矩阵等于奇异值矩阵的平方，也就是特征值和奇异值满足如下关系</p>
 <script type="math/tex; mode=display">
-W^l=W^l-\alpha \sum_{i=1}^{m} \delta^{i,l}(a^{x,l-1})^T-\frac{\alpha }{m}\lambda W^l</script><p>类似的正则化方法，同样可以用于其他损失函数，在这里不再介绍。</p>
-<h3 id="3-DNN之Dropout正则化"><a href="#3-DNN之Dropout正则化" class="headerlink" title="3.DNN之Dropout正则化"></a>3.DNN之Dropout正则化</h3><p>Dropout指的是在用前向传播算法和反向传播算法训练模型时，随机的从全连接DNN网络中去掉一部分隐含层的神经元。比如我们完整的DNN模型如下所示</p>
-<p><img src="/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片04.png" alt="深度神经网络之正则化图片04"></p>
-<p>然后随机的去掉部分隐含层的神经元，利用数据进行训练模型，更新所有的W,b。</p>
-<p><img src="/2018/07/03/深度神经网络之正则化/深度神经网络之正则化图片05.png" alt="深度神经网络之正则化图片05"></p>
-<p>总结下Dropout方法就是，每轮梯度下降迭代时，将训练数据分成若干批，然后分批进行迭代。每批数据迭代时，将原始的DNN模型随机去掉部分隐含层的神经元，然后用残缺的DNN模型来迭代更新W,b。每批数据迭代完成之后，将残缺的DNN模型恢复成原始的DNN模型，接着去训练模型，更新W,b。当然，运用Dropout正则化方法，需要有较大数据量支持，否则可能会出现欠拟合的情况。</p>
-<h3 id="4-DNN之集成学习正则化"><a href="#4-DNN之集成学习正则化" class="headerlink" title="4.DNN之集成学习正则化"></a>4.DNN之集成学习正则化</h3><p>在<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483845&amp;idx=1&amp;sn=5484385408d694ba03a8bdc3a03c2263&amp;chksm=fcd7d233cba05b25b0f65289f8416466df9124b019b60704b4e3875d9864ff90e3388c666f66#rd" target="_blank" rel="noopener">机器学习之随机森林</a>和<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483849&amp;idx=1&amp;sn=3cd3d40d26e600901cf3d72c43f7c696&amp;chksm=fcd7d23fcba05b2923651f1b0808861b4e559de1b004f37a2adcec7fae9002dd9f11d99c7791#rd" target="_blank" rel="noopener">机器学习之梯度提升决策树</a>之中，我们已经学习集成学习中的Bagging和Boosting方法，而DNN可以用Bagging方法来正则化。随机森林中，Bagging方法通过随机采样构建若干个相互独立的弱决策树学习器，最后通过采用加权平均法或者投票法决定集成的输出。</p>
-<p>DNN中我们采用的是若干个DNN的网络，首先对原始的训练样本进行有放回的随机采样，构建N组m个样本的数据集，然后分别用这N组数据集去训练我们的DNN。通过利用前向传播算法和反向传播算法得到N个DNN模型的W,b参数组合，然后对N个DNN模型的输出用加权平均法或者投票法决定最后的输出。最后，因为DNN模型比较复杂，通过Bagging后模型参数会增加N倍，从而导致训练模型需要花费较长的时间，因此一般N的取值不能太大，5-10个即可。</p>
-<h3 id="5-DNN之增强数据集正则化"><a href="#5-DNN之增强数据集正则化" class="headerlink" title="5.DNN之增强数据集正则化"></a>5.DNN之增强数据集正则化</h3><p>增强模型泛化能力最好的方法，是有更多更好的训练数据，但实际情况之中，对于某些数据，我们很难能够得到。那么，我们不如去构造一些数据，来让模型得到更强的泛化能力。对于传统的机器学习算法，比如上面提到的<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483845&amp;idx=1&amp;sn=5484385408d694ba03a8bdc3a03c2263&amp;chksm=fcd7d233cba05b25b0f65289f8416466df9124b019b60704b4e3875d9864ff90e3388c666f66#rd" target="_blank" rel="noopener">机器学习之随机森林</a>和<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483849&amp;idx=1&amp;sn=3cd3d40d26e600901cf3d72c43f7c696&amp;chksm=fcd7d23fcba05b2923651f1b0808861b4e559de1b004f37a2adcec7fae9002dd9f11d99c7791#rd" target="_blank" rel="noopener">机器学习之梯度提升决策树</a>算法，想要构造数据的话，能够很方便的构造输入数据，但是很难构造出对应的输出数据。</p>
-<p>但对于深度神经网络来说，比如图像识别领域，对于原始数据集的图像，我们可以偏倚或者旋转图像之后，得到新的数据集。显然原始数据和新构造的数据输入是不同的图像，但输出是相同的，因此通过训练后，模型的泛化便能够增强。对应的例子，比如利用DNN识别手写数字，数字5旋转15度之后，识别之后还是5。</p>
+\sigma_i = \sqrt{\lambda_i}</script><p>这也就是说，我们不仅可以通过用$\sigma_i = \frac{Av_i}{u_i}$来计算奇异值，也可以通过求出$A^TA$的特征值，然后取平方根得到奇异值。</p>
+<h3 id="3-SVD示例"><a href="#3-SVD示例" class="headerlink" title="3. SVD示例"></a>3. SVD示例</h3><p>下面我们通过一个简单例子来说明矩阵式如何进行奇异值分解的，假设矩阵A为</p>
+<script type="math/tex; mode=display">
+A = \begin{pmatrix}
+0 & 1\\ 
+1 & 1\\ 
+1 & 0
+\end{pmatrix}</script><p>然后求出$A^TA$和$AA^T$</p>
+<script type="math/tex; mode=display">
+A^TA = \begin{pmatrix}
+0 & 1 & 1\\ 
+1 & 1 & 0\\ 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1 \\
+1 & 1 \\
+1 & 0 \\
+\end{pmatrix}
+= \begin{pmatrix}
+2 & 1 \\
+1 & 2 \\
+\end{pmatrix}</script><script type="math/tex; mode=display">
+AA^T = \begin{pmatrix}
+0 & 1 \\
+1 & 1 \\
+1 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1 & 1\\ 
+1 & 1 & 0\\ 
+\end{pmatrix}
+= \begin{pmatrix}
+1 & 1 & 0\\
+1 & 2 & 1\\
+0 & 1 & 1\\
+\end{pmatrix}</script><p>进而求出$A^TA$的特征值和特征向量</p>
+<script type="math/tex; mode=display">
+\lambda_1 = 3; v_1 = \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} \\
+\end{pmatrix}</script><script type="math/tex; mode=display">
+\lambda_2 = 1; v_2 = \begin{pmatrix}
+-\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} \\
+\end{pmatrix}</script><p>求出$AA^T$的特征值和特征向量</p>
+<script type="math/tex; mode=display">
+\lambda_1 = 3; u_1 = \begin{pmatrix}
+\frac{1}{\sqrt{6}} \\
+\frac{2}{\sqrt{6}} \\
+\frac{1}{\sqrt{6}} \\
+\end{pmatrix}</script><script type="math/tex; mode=display">
+\lambda_2 = 1; u_2 = \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+-\frac{1}{\sqrt{2}} \\
+\end{pmatrix}</script><script type="math/tex; mode=display">
+\lambda_3 = 0; u_3 = \begin{pmatrix}
+\frac{1}{\sqrt{3}} \\
+-\frac{1}{\sqrt{3}} \\
+\frac{1}{\sqrt{3}} \\
+\end{pmatrix}</script><p>利用$Av_i = \sigma_i u_i, i = 1,2$求解奇异值</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+0 & 1\\ 
+1 & 1\\ 
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} \\
+\end{pmatrix}
+= \sigma_1
+\begin{pmatrix}
+\frac{1}{\sqrt{6}} \\
+\frac{2}{\sqrt{6}} \\
+\frac{1}{\sqrt{6}} \\
+\end{pmatrix}
+\Rightarrow \sigma_1 = \sqrt{3}</script><script type="math/tex; mode=display">
+\begin{pmatrix}
+0 & 1\\ 
+1 & 1\\ 
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+-\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} \\
+\end{pmatrix}
+= \sigma_2
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+-\frac{1}{\sqrt{2}} \\
+\end{pmatrix}
+\Rightarrow \sigma_2 = 1</script><p>当然，我们也可以利用$\sigma_i = \sqrt{\lambda_i}$直接求出奇异值$\sqrt{3}$和1。最终得到A的奇异值分解为</p>
+<script type="math/tex; mode=display">
+A = U \Sigma V^T =
+\begin{pmatrix}
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{3}}\\
+\frac{2}{\sqrt{6}} & 0 & -\frac{1}{\sqrt{3}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{3}}\\
+\end{pmatrix}
+\begin{pmatrix}
+\sqrt{3} & 0 \\
+0 & 1  \\
+0 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  \\
+\end{pmatrix}</script><h3 id="4-SVD性质"><a href="#4-SVD性质" class="headerlink" title="4. SVD性质"></a>4. SVD性质</h3><p>对于SVD有哪些重要的性质值得我们注意呢? 对于奇异值，它跟特征分解中的特征值类似，在奇异值矩阵中也是按照从大到小排列，而且奇异值的减少特别的快，在很多情况下，前10%甚至1%的奇异值的和就占了全部奇异值之和的99%以上的比例。也就是说，我们可以用最大的k个奇异值和对应的左右奇异向量来近似描述矩阵，即</p>
+<script type="math/tex; mode=display">
+A_{m*n} = U_{m*m} \Sigma_{m*n}V^T_{n * n } \approx U_{m*k}\Sigma_{k*k}V^T_{k*n}</script><p>其中k要比n小很多，也就是一个大的矩阵A可以用三个小的矩阵$U_{m<em>k},\Sigma_{k</em>k},V^T_{k*n}$来表示。如下图所示，现在矩阵A只需要灰色部分的三个小矩阵就可以近似描述。</p>
+<p><img src="/2018/12/31/机器学习降维之奇异值分解-SVD/机器学习降维之奇异值分解SVD图片02.png" alt="机器学习降维之奇异值分解SVD图片02"></p>
+<p>由于这个重要的性质，因此SVD可以用于PCA降维，用来做数据压缩和去噪。也可以用于推荐算法，将用户和喜好对应的矩阵做特征分解，进而得到隐含的用户需求来做推荐。同时也可以用于NLP之中的算法，比如潜在语义索引(LSI)。</p>
+<h3 id="5-SVD在PCA之中的应用"><a href="#5-SVD在PCA之中的应用" class="headerlink" title="5. SVD在PCA之中的应用"></a>5. SVD在PCA之中的应用</h3><p>在<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247484027&amp;idx=1&amp;sn=245a237eed7fa6ec4d6db08168c4e889&amp;chksm=fcd7d18dcba0589b2ab1289bd7b9cec3a2b265f1d17cb2fb1f109437a1f53285cdab75e997b4&amp;token=980498466&amp;lang=zh_CN#rd" target="_blank" rel="noopener">机器学习降维之主成分分析(PCA)</a>之中，我们讲到PCA降维时，需要找到样本协方差矩阵$X^TX$最大的d个特征向量，然后用着最大的d个特征向量组成的矩阵来做低维投影降维。可以看出，在这个过程中需要先求出协方差矩阵$X^TX$，当样本数多、样本特征数也多的时候，比如10000*10000的矩阵，这个计算量是很大的。</p>
+<p>注意到SVD也可以求出协方差矩阵$X^TX$最大的d个特征向量组成的矩阵，但是SVD有个好处，就是可以不求出协方差矩阵$X^TX$，也能通过某些算法求出右奇异矩阵$V$，比如<a href="https://arxiv.org/abs/0909.4061" target="_blank" rel="noopener">https://arxiv.org/abs/0909.4061</a>。也就是说，PCA算法可以不用做特征分解，而是用SVD来进行完成。</p>
+<p>另一方面，PCA仅仅使用了SVD的右奇异矩阵，没有使用左奇异矩阵，那么左奇异矩阵有什么用呢？假如我们的样本是m×n的矩阵X，如果通过SVD找到矩阵$XX^T$最大的d个特征向量组成的m×d的矩阵U，则我们进行如下处理</p>
+<script type="math/tex; mode=display">
+X'_{d*n} = U_{d*m}^TX_{m*n}</script><p>可以得到一个d×n的矩阵X’，这个矩阵和我们原来的m×n维样本矩阵X相比，行数从m减到了d，可见对行数进行了压缩。也就是说，左奇异矩阵可以用于行数的压缩，右奇异矩阵可以用于列数压缩，即特征降维。</p>
+<h3 id="6-SVD算法总结"><a href="#6-SVD算法总结" class="headerlink" title="6. SVD算法总结"></a>6. SVD算法总结</h3><p>SVD作为一个很基本的算法，在很多机器学习算法中都有它的身影，特别是在现在的大数据时代，由于SVD可以实现并行化，因此更是大展身手。当然，SVD的缺点是分解出的矩阵解释性往往不强，不过这不影响它的使用。</p>
+<h3 id="7-推广"><a href="#7-推广" class="headerlink" title="7. 推广"></a>7. 推广</h3><p>更多内容请关注公众号<strong>谓之小一</strong>，若有疑问可在公众号后台提问，随时回答，欢迎关注，内容转载请注明出处。</p>
+<p><img src="/2018/12/31/机器学习降维之奇异值分解-SVD/推广.png" alt="推广"></p>
 <p>参考</p>
 <blockquote>
-<p><a href="https://www.cnblogs.com/pinard/p/6472666.html" target="_blank" rel="noopener">深度神经网络(DNN)的正则化-刘建平Pinard</a></p>
-<p><a href="https://blog.csdn.net/jinping_shi/article/details/52433975" target="_blank" rel="noopener">机器学习中正则化项L1和L2的直观理解-阿拉丁吃米粉</a></p>
-<p><a href="https://www.zhihu.com/question/20924039" target="_blank" rel="noopener">机器学习中常常提到的正则化到底是什么意思？-陶轻松</a></p>
+<p><a href="https://www.cnblogs.com/pinard/p/6251584.html" target="_blank" rel="noopener">刘建平Pinard-奇异值分解(SVD)原理转载降维中的应用</a></p>
 </blockquote>
-<h3 id="6-推广"><a href="#6-推广" class="headerlink" title="6.推广"></a>6.推广</h3><p>更多内容请关注公众号<strong>谓之小一</strong>，若有疑问可在公众号后台提问，随时回答，欢迎关注，内容转载请注明出处。</p>
-<p><img src="/2018/07/03/深度神经网络之正则化/推广.png" alt="推广"></p>
 
       
     </div>
@@ -590,8 +689,6 @@ W^l=W^l-\alpha \sum_{i=1}^{m} \delta^{i,l}(a^{x,l-1})^T-\frac{\alpha }{m}\lambda
           
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
-          
             <a href="/tags/算法/" rel="tag"># 算法</a>
           
         </div>
@@ -605,8 +702,8 @@ W^l=W^l-\alpha \sum_{i=1}^{m} \delta^{i,l}(a^{x,l-1})^T-\frac{\alpha }{m}\lambda
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/30/深度神经网络之损失函数和激活函数/" rel="next" title="深度神经网络之损失函数和激活函数">
-                <i class="fa fa-chevron-left"></i> 深度神经网络之损失函数和激活函数
+              <a href="/2018/12/30/机器学习降维之主成分分析-PCA/" rel="next" title="机器学习降维之主成分分析(PCA)">
+                <i class="fa fa-chevron-left"></i> 机器学习降维之主成分分析(PCA)
               </a>
             
           </div>
@@ -614,10 +711,6 @@ W^l=W^l-\alpha \sum_{i=1}^{m} \delta^{i,l}(a^{x,l-1})^T-\frac{\alpha }{m}\lambda
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/29/《剑指Offer》Python版/" rel="prev" title="《剑指Offer》Python版">
-                《剑指Offer》Python版 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -854,7 +947,7 @@ W^l=W^l-\alpha \sum_{i=1}^{m} \delta^{i,l}(a^{x,l-1})^T-\frac{\alpha }{m}\lambda
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-正则化"><span class="nav-text">1.正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-为什么要正则化？"><span class="nav-text">1.1 为什么要正则化？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-什么是正则化？"><span class="nav-text">1.2 什么是正则化？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-L1正则化和L2正则化"><span class="nav-text">1.3 L1正则化和L2正则化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-DNN之L1和L2正则化"><span class="nav-text">2.DNN之L1和L2正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-DNN之Dropout正则化"><span class="nav-text">3.DNN之Dropout正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-DNN之集成学习正则化"><span class="nav-text">4.DNN之集成学习正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-DNN之增强数据集正则化"><span class="nav-text">5.DNN之增强数据集正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-推广"><span class="nav-text">6.推广</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-回顾特征值和特征向量"><span class="nav-text">1. 回顾特征值和特征向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-奇异值分解-SVD"><span class="nav-text">2. 奇异值分解(SVD)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-SVD示例"><span class="nav-text">3. SVD示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-SVD性质"><span class="nav-text">4. SVD性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-SVD在PCA之中的应用"><span class="nav-text">5. SVD在PCA之中的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-SVD算法总结"><span class="nav-text">6. SVD算法总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-推广"><span class="nav-text">7. 推广</span></a></li></ol></div>
             
 
           </div>
