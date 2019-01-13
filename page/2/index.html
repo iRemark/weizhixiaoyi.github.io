@@ -359,6 +359,413 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/11/24/MCMC之蒙特卡罗方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谓之小一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/24/MCMC之蒙特卡罗方法/" itemprop="url">
+                  MCMC之蒙特卡罗方法
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-24 17:29:21" itemprop="dateCreated datePublished" datetime="2018-11-24T17:29:21+08:00">2018-11-24</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学统计学/" itemprop="url" rel="index"><span itemprop="name">数学统计学</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/24/MCMC之蒙特卡罗方法/" class="leancloud_visitors" data-flag-title="MCMC之蒙特卡罗方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1.MCMC简介马尔可夫链蒙克卡罗(Markov Chain Monte Carlo,MCMC)是一种随机采样方法，在机器学习、深度学习及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础，例如受限玻尔兹曼机(RBM)便是用MCMC来做一些复杂算法的近似求解。在具体讲解什么是MCMC之前，我们先看看MCMC可以解决什么样的问题，为什么需要MCMC方法。
+2. 为什么需要MCMC?假如我们需要对一维随机变量$X$进行随机采样，$X$的样本空间是$\{1,2,3\}$，概率分别是$\{\frac{1}{2},\frac{1}{4},\frac{1}{4}\}$。那么我们只需要根据各离散值的概率大小对[0,1]区间进行等比例划分，例如划分为[0,0.5],[0.5,0.75],[0.75,1]三个区间，然后通过计算机产生[0,1]之间的伪随机数，根据伪随机数的落点便可完成采样。下面问题变得复杂一些，假如$X$是连续分布，概率密度函数(PDF)是$f(X)$，那么如何采样呢。
+你肯定会想到累积分布函数(CDF)，表达式为$P(x) = \int _{-\infty} ^{x} f(x)
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/24/MCMC之蒙特卡罗方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/11/12/LSTM神经网络之前向反向传播算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谓之小一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/12/LSTM神经网络之前向反向传播算法/" itemprop="url">
+                  LSTM神经网络之前向反向传播算法
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-12 20:03:41" itemprop="dateCreated datePublished" datetime="2018-11-12T20:03:41+08:00">2018-11-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/12/LSTM神经网络之前向反向传播算法/" class="leancloud_visitors" data-flag-title="LSTM神经网络之前向反向传播算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">5.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">9 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          上篇文章我们已经学习了循环神经网络的原理，并指出RNN存在严重的梯度爆炸和梯度消失问题，因此很难处理长序列的数据。本篇文章，我们将学习长短期记忆网络(LSTM,Long Short Term Memory)，看LSTM解决RNN所带来的梯度消失和梯度爆炸问题。
+1.从RNN到LSTMRNN模型具有如下所示的结构，其中每个索引位置t都有一个隐藏状态$h^{(t)}$。
+
+如果省略每层的$o^{(t)},L^{(t)},y^{(t)}$，则RNN模型可以简化到如下所示的结构。其中隐藏状态的$h^{(t)}$由$x^{(t)}$和$h^{(t-1)}$得到，得到$h^{(t)}$后可用于计算当前层的模型损失和下一层的$h^{(t+1)}$。
+
+为解决梯度消失的问题，大牛们针对RNN序列索引位置t的隐藏结构作出相应改进，进而提出LSTM模型。其中LSTM模型有多种形式，下面我们以最常见的LSTM模型为例进行讲解。
+
+2.LSTM模型结构LSTM模型除了和RNN模型具有相同的隐藏状态$h^{(t)}$外，还增加了新的隐藏状态$C^{(t)}$，如下图中横线所示。新增加的隐藏状态称为细胞状态(Ce
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/12/LSTM神经网络之前向反向传播算法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/10/24/循环神经网络之前向反向传播算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1585,415 +1992,6 @@ pwd显示当前目录 p
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/07/29/《剑指Offer》Python版/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoYi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谓之小一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/29/《剑指Offer》Python版/" itemprop="url">
-                  《剑指Offer》Python版
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-29 15:02:01" itemprop="dateCreated datePublished" datetime="2018-07-29T15:02:01+08:00">2018-07-29</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/07/29/《剑指Offer》Python版/" class="leancloud_visitors" data-flag-title="《剑指Offer》Python版">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">63k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1:false</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1.二维数组中的查找题目： 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
-思路：遍历每一行，查找该元素是否在该行之中。
-12345678910111213141516# -*- coding:utf-8 -*-class Solution:    # array 二维列表    def Find(self, target, array):        # write code here        for line in array:            if target in line:                return True        return Falseif __name__=='__main__':    target=2    array=[[1,2,3,4],[2,3,4,5],[3,4,5,6],[4,5,6,7]]    solution=Solution()    ans=solution.F
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/29/《剑指Offer》Python版/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/07/03/深度神经网络之正则化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoYi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谓之小一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/03/深度神经网络之正则化/" itemprop="url">
-                  深度神经网络之正则化
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-03 09:58:46" itemprop="dateCreated datePublished" datetime="2018-07-03T09:58:46+08:00">2018-07-03</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/07/03/深度神经网络之正则化/" class="leancloud_visitors" data-flag-title="深度神经网络之正则化">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">5k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">8 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1.正则化之前介绍的文章之中，我们已多次接触到正则化方法，但没有详细的解释为什么要正则化，什么是正则化，以及L1正则化和L2正则化的区别。本次文章之中，我们将详解机器学习中正则化的概念和深度神经网络中的正则化方法。
-1.1 为什么要正则化？讲到为什么需要正则化，就需要了解什么是过拟合问题。以下面图片为例，我们能够看到有两个类别，其中以X代表男生，O代表女生。
-
-我们想要通过学习来得到分类曲线，其中分类曲线能够有效区分男生和女生，现在来分析下上面的三种分类结果。
-
-欠拟合：图1分类明显欠缺，有些男生被分为女生，有些女生被分为男生。
-正拟合：图2虽然有两个男生被分类为女生，但能够理解，毕竟我们人类自己也有分类错误的情况，比如通过化妆，女装等方法。
-过拟合：图3虽然能够全部分类正确，但结果全部正确就一定好吗？不一定，我们能够看到分类曲线明显过于复杂，模型学习的时候学习了过多的参数项，但其中某些参数项是无用的特征，比如眼睛大小。当我们进行识别测试集数据时，就需要提供更多的特征，如果测试集包含海量的数据，模型的时间复杂度可想而知。
-
-1.2 什么是正则化？既然我们已经知道什么是过拟合，那么怎么解
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/03/深度神经网络之正则化/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2045,7 +2043,7 @@ pwd显示当前目录 p
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2219,7 +2217,7 @@ pwd显示当前目录 p
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">286k</span>
+    <span title="站点总字数">292k</span>
   
 
   
