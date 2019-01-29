@@ -130,7 +130,10 @@
 <meta property="og:description" content="1.LDA简介线性判别分析(Linear Discriminant Analysis, LDA)是一种监督学习的降维方法，也就是说数据集的每个样本是有类别输出。和之前介绍的机器学习降维之主成分分析(PCA)方法不同，PCA是不考虑样本类别输出的无监督学习方法。LDA的原理简单来说就是将带上标签的数据（点），通过投影的方法，投影到维度更低的空间中，使得投影后的点会形成按类别区分。而我们的目标就是使得">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://weizhixiaoyi.com/2019/01/06/机器学习降维之线性判别模型-LDA/机器学习降维之线性判别模型LDA图片01.png">
-<meta property="og:updated_time" content="2019-01-06T16:47:21.572Z">
+<meta property="og:image" content="https://weizhixiaoyi.com/2019/01/06/机器学习降维之线性判别模型-LDA/机器学习降维之线性判别模型LDA图片02.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2019/01/06/机器学习降维之线性判别模型-LDA/机器学习降维之线性判别模型LDA图片03.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2019/01/06/机器学习降维之线性判别模型-LDA/推广.png">
+<meta property="og:updated_time" content="2019-01-29T07:45:08.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习降维之线性判别模型(LDA)">
 <meta name="twitter:description" content="1.LDA简介线性判别分析(Linear Discriminant Analysis, LDA)是一种监督学习的降维方法，也就是说数据集的每个样本是有类别输出。和之前介绍的机器学习降维之主成分分析(PCA)方法不同，PCA是不考虑样本类别输出的无监督学习方法。LDA的原理简单来说就是将带上标签的数据（点），通过投影的方法，投影到维度更低的空间中，使得投影后的点会形成按类别区分。而我们的目标就是使得">
@@ -464,7 +467,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.2k</span>
+                <span title="本文字数">4.7k</span>
               
 
               
@@ -478,7 +481,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">8 分钟</span>
               
             </div>
           
@@ -502,7 +505,7 @@
 <p>以下图为例，假设有两类数据，分别为红色和蓝色。现在我们希望，将这些数据投影到一维的直线上，让每一种类别数据的投影点尽可能的接近，而红色和蓝色数据中心之间的距离尽可能的大。</p>
 <p><img src="/2019/01/06/机器学习降维之线性判别模型-LDA/机器学习降维之线性判别模型LDA图片01.png" alt="机器学习降维之线性判别模型LDA图片01"></p>
 <p>从上图的两种投影方式能够看出，右图能够更好的满足我们的目标，即<strong>类间方差最大，类内方差最小</strong>。下面我们来看看LDA内部原理，如何达到我们所希望的目标。</p>
-<h3 id="2-瑞利商和广义瑞利商"><a href="#2-瑞利商和广义瑞利商" class="headerlink" title="2.瑞利商和广义瑞利商"></a>2.瑞利商和广义瑞利商</h3><p>介绍LDA原理之前，我们先了解一些数据知识，即<strong>瑞利商(Rayleigh quotient)</strong>与<strong>广义瑞利商(genralized Rayleigh quotient)</strong>。首先来看看瑞利商的函数R(A,x)</p>
+<h3 id="2-瑞利商和广义瑞利商"><a href="#2-瑞利商和广义瑞利商" class="headerlink" title="2.瑞利商和广义瑞利商"></a>2.瑞利商和广义瑞利商</h3><p>介绍LDA原理之前，我们先了解一些数学知识，即<strong>瑞利商(Rayleigh quotient)</strong>与<strong>广义瑞利商(genralized Rayleigh quotient)</strong>。首先来看看瑞利商的函数R(A,x)</p>
 <script type="math/tex; mode=display">
 R(A,x) = \frac{x^HAx}{x^Hx}</script><p>其中x为非零向量，而A为n*n的Hermitan矩阵。Hermitan矩阵是指满足共轭转置矩阵和自己相等的矩阵，即$A^H=A$。如果矩阵A是实矩阵的话，如果满足$A^T=A$，那么就是Hermitan矩阵。</p>
 <p>瑞利商R(A,x)有一个非常重要的性质，即它的最大值等于矩阵A的最大特征值，而最小值等于矩阵A的最小特征值，即满足</p>
@@ -510,7 +513,7 @@ R(A,x) = \frac{x^HAx}{x^Hx}</script><p>其中x为非零向量，而A为n*n的Her
 \lambda_{min}\le \frac{x^HAx}{x^Hx}\le \lambda_{max}</script><p>以上就是瑞利商的内容，现在看看广义瑞利商内容，广义瑞利商函数R(A,B,x)</p>
 <script type="math/tex; mode=display">
 R(A,B,x)= \frac{x^HAx}{x^HBx}</script><p>其中x为非零向量，而A,B为n*n的Hermitan矩阵，B是正定矩阵。那么R(A,B,x)的最大值和最小值是什么呢？</p>
-<p>首先我们先将广义瑞利商转化为瑞利商的情况，令$x=B^{-1/2}x’$。则其分母变为</p>
+<p>首先我们先将广义瑞利商转化为瑞利商的情况，令$x=B^{-1/2}x’​$。则其分母变为</p>
 <script type="math/tex; mode=display">
 x^HBx = x^{'H}(B^{-1/2})^HBB^{-1/2}x'
 \\
@@ -520,8 +523,80 @@ x^HBx = x^{'H}(B^{-1/2})^HBB^{-1/2}x'
 <script type="math/tex; mode=display">
 x^HAx= x^{'H}B^{-1/2}AB^{-1/2}x'</script><p>此时R(A,B,x)转变为R(A,B,x′)</p>
 <script type="math/tex; mode=display">
-R(A,B,x')=\frac{x^{'H}B^{-1/2}AB^{-1/2}x'}{x^{'H}x'}</script><p>利用前面的瑞利商性质，我们可以知道，R(A,B,x)的最大值为矩阵$B^{-1/2}AB^{-1/2}$的最大特征值，或者说矩阵$B^{-1}A$的最大特征值，最小值为$B^-1A$的最小特征值。</p>
-<h3 id="3-二类LDA原理"><a href="#3-二类LDA原理" class="headerlink" title="3.二类LDA原理"></a>3.二类LDA原理</h3><h3 id="4-多类LDA原理"><a href="#4-多类LDA原理" class="headerlink" title="4.多类LDA原理"></a>4.多类LDA原理</h3>
+R(A,B,x')=\frac{x^{'H}B^{-1/2}AB^{-1/2}x'}{x^{'H}x'}</script><p>利用前面的瑞利商性质，我们可以知道，R(A,B,x)的最大值为矩阵$B^{-1/2}AB^{-1/2}$的最大特征值，或者说矩阵$B^{-1}A$的最大特征值，最小值为$B^{- 1}A$的最小特征值。</p>
+<h3 id="3-二类LDA原理"><a href="#3-二类LDA原理" class="headerlink" title="3.二类LDA原理"></a>3.二类LDA原理</h3><p>假如我们数据集为$D=\{(x_1,y_1),(x_2,y_2),…,(x_m,y_m) \}$，其中任意样本$x_i$为n维向量，$y_i \in \{0,1 \}$。我们定义$N_j(j=0, 1)$为第j类样本的个数，$X_j(j=0,1)$为第j类样本的结合，$\mu_j(j=0,1)$为第j类样本的均值向量，$\sum_j(j=0, 1)$为第j类样本的协方差矩阵(严格来说是缺少分母部分的协方差矩阵)。其中</p>
+<script type="math/tex; mode=display">
+\mu_j = \frac{1}{N_j}\sum_{x\in X_j}\ x(j=0,1)</script><script type="math/tex; mode=display">
+\sum_j = \sum_{x\in X_j}(x-\mu_j)(x-\mu_j)^T\ (j=0,1)</script><p>由于是两类数据，因此我们只需要将数据投影到一条直线上即可。假设我们的投影直线向量为$w$，则对于任意一个样本$x_i$，它在直线w的投影为$w^Tx_i$。对于我们两个类别的中心点$\mu_0,\mu_1$来说，在直线$w$的投影为$w^T\mu_0,w^T\mu_1$。</p>
+<p>由于LDA需要让不同类别数据的中心之间距离尽可能的大，也就是要最大化$||w^T\mu_0-w^T\mu_1||​$。同时需要让同一类别数据的投影点尽可能的接近，也就是要最小化$w^T\sum_0w+w^T\sum_1w​$。因此，我们的优化目标变为</p>
+<script type="math/tex; mode=display">
+\underbrace{arg \max}_w J(w) = \frac{||w^T\mu_0-w^T\mu_1||_2^2}{w^T\sum_0w+w^T\sum_1w}=\frac{w^T(\mu_0-\mu_1)(\mu_0-\mu_1)^Tw}{w^T(\sum_0+\sum_1)w}</script><p>同时，定义类内散度矩阵$S_w$为</p>
+<script type="math/tex; mode=display">
+S_w=\sum_0+\sum_1=\sum_{x\in X_0}(x-\mu_0)(x-\mu_0)^T + \sum_{x\in X_1}(x-\mu_1)(x-\mu_1)^T</script><p>定义类间散度矩阵$S_b$为</p>
+<script type="math/tex; mode=display">
+S_b=(\mu_0-\mu_1)(\mu_0-\mu_1)^T</script><p>这样我们的优化目标变为</p>
+<script type="math/tex; mode=display">
+\underbrace{arg \max}_w J(w) = \frac{w^TS_bw}{w^TS_ww}</script><p>上述形式便是我们第二节介绍到的广义瑞利商，利用第二节介绍的广义瑞利商的性质，能够得到$J(w)$的最大值为$S_w^{-1/2}S_bS_w^{-1/2}$的最大特征值，而对应的$w$为$S_w^{-1/2}S_bS_w^{-1/2}$的最大特征值所对应的特征向量。</p>
+<p>$S_w^{-1}S_b$的特征值和$S_w^{-1/2}S_bS_w ^{-1/2}$的特征值相同，$S_w^{-1}S_b$的特征向量$w’$和$S_w ^{-1/2}S_bS_w ^{-1/2}$的特征向量满足$w’=S_w^{-1/2}w$的关系。注意到对于二类的时候</p>
+<script type="math/tex; mode=display">
+S_bw' = (\mu_0-\mu_1)(\mu_0-\mu_1)^Tw'=(\mu_0-\mu_1)(w'^T(\mu_0-\mu_1))^T</script><p>即$S_bw’$的方向恒为$\mu_0-\mu_1$，因此令$S_bw’=\lambda(\mu_0-\mu_1)$，将其带入$(S_w^{-1}S_b)w’ = \lambda w’$</p>
+<script type="math/tex; mode=display">
+(S_w^{-1}S_b)w' = S_w^{-1}\lambda (\mu_0-\mu_1)= \lambda w'</script><script type="math/tex; mode=display">
+w'=S_w^{-1}(\mu_0-\mu_1)</script><p>也就是说，我们只要求出原始二类样本的均值和方差就可以确定最佳的投影方向w了。</p>
+<h3 id="4-多类LDA原理"><a href="#4-多类LDA原理" class="headerlink" title="4.多类LDA原理"></a>4.多类LDA原理</h3><p>假如我们数据集为$D=\{(x_1,y_1),(x_2,y_2),…,(x_m,y_m) \}$，其中任意样本$x_i$为n维向量，$y_i \in \{C_1,C_2,…,C_k \}$。我们定义$N_j(j=1,2,…,k)$为第j类样本的个数，$X_j(j=1,2,…,k)$为第j类样本的结合，$\mu_j(j=1,2,…,k)$为第j类样本的均值向量，$\sum_j(j=1,2,…,k)​$为第j类样本的协方差矩阵。</p>
+<p>由于是多维向低维投影，此时得到的低位空间就不是一条直线，而是一个超平面。假设投影后得到的低维空间维度为d，对应的基向量为$(w_1,w_2,…,w_d)​$，基向量组成的矩阵为W，是一个n*d的矩阵。</p>
+<p>此时我们的优化目标变为</p>
+<script type="math/tex; mode=display">
+\frac{W^TS_bW}{W^TS_wW}</script><p>其中$S_b=\sum_{j=1}^kN_j(\mu_j-\mu)(\mu_j-\mu)^T$，$\mu$为所有样本的均值向量。$S_w=\sum_{j=1}^kS_{wj}=\sum_{j=1}^k\sum_{x\in X_j}(x-\mu_j)(x-\mu_j)^T$。但是有一个问题，$W^TS_bW$和$W^TS_wW​$都是矩阵，不是标量，无法作为一个标量函数来进行优化，怎么办呢。</p>
+<p>常见的一个LDA多类优化目标函数定义如下所示，其中$\prod_{diag}A​$为A的主对角线元素的乘积，W为n*d的矩阵。</p>
+<script type="math/tex; mode=display">
+\underbrace{arg \max}_w J(w) = \frac{\prod_{diag}W^TS_bW}{\prod_{diag}W^TS_wW}</script><p>J(W)的优化过程可以转化为</p>
+<script type="math/tex; mode=display">
+J(W)=\frac{\prod_{i=1}^dw_i^TS_bw_i}{\prod_{i=1}^dw_i^TS_ww_i}= \prod_{i=1}^d\frac{w_i^TS_bw_i}{w_i^TS_ww_i}</script><p>上述便是我们前面所介绍的广义瑞利商，最大值便是矩阵$S_w^{-1}S_b​$的最大特征值，最大的d个值的乘积就是矩阵$S_w^{-1}S_b​$的最大的d个特征值的乘积，此时对应的矩阵W为这最大的d个特征值对应的特征向量张成的矩阵。</p>
+<p>由于W是利用了样本的类别得到的投影矩阵，因此它的降维到的维度d最大值为k-1。为什么最大维数不是类别数k呢？因为$S_b​$中每个$\mu_j-\mu​$的秩为1，因此协方差矩阵相加后最大的秩为k(矩阵的秩小于等于各个相加矩阵的秩的和)，但是由于如果我们知道前k-1个$\mu_j​$后，最后一个$\mu_k​$可以由前k-1个$\mu_j​$线性表示，因此$S_b​$的秩最大为k-1，即特征向量最多有k-1个。</p>
+<h3 id="5-LDA算法流程"><a href="#5-LDA算法流程" class="headerlink" title="5.LDA算法流程"></a>5.LDA算法流程</h3><p>输入：数据集$D=\{(x_1,y_1),(x_2,y_2),…,(x_m,y_m) \}​$，其中任意样本$x_i​$为n维向量，$y_i\in \{C_1,C_2,…,C_k \}​$，降维到的维度d。</p>
+<p>输出：降维后的样本集$D’​$</p>
+<p>算法过程：</p>
+<ul>
+<li>计算类内散度矩阵$S_w$。</li>
+<li>计算类内散度矩阵$S_b$。</li>
+<li>计算矩阵$S_w^{-1}S_b​$。</li>
+<li>计算$S_w^{-1}S_b$的最大的d个特征值和对应的d个特征向量$w_1,w_2,…,w_d$，得到投影矩阵W。</li>
+<li>对样本集中每一个样本特征$x_i$，计算得到新样本$z_i=W^Tx_i$。</li>
+<li>得到输出样本集$D’=\{(z_1,y_1),(z_2,y_2),…,(z_m,y_m) \}$。</li>
+</ul>
+<h3 id="6-LDA-vs-PCA"><a href="#6-LDA-vs-PCA" class="headerlink" title="6.LDA vs PCA"></a>6.LDA vs PCA</h3><p>LDA和PCA有很多相同点和不同点，我们来对比看看两者的区别。</p>
+<p><strong>相同点</strong></p>
+<ul>
+<li>两者均可对数据进行降维。</li>
+<li>两者在降维时均使用了矩阵特征分解的思想。</li>
+<li>两者都假设数据符合高斯分布。</li>
+</ul>
+<p><strong>不同点</strong></p>
+<ul>
+<li>LDA是有监督的降维方法，而PCA是无监督的降维方法。</li>
+<li>LDA降维最多降到类别数k-1的维数，而PCA无此限制。</li>
+<li>LDA选择分类性能最好的投影方向，而PCA选择样本点投影具有最大方差的方向。</li>
+</ul>
+<p>不同数据情况下，LDA和PCA降维方法各有优劣。例如某些数据情况下LDA比PCA方法更好</p>
+<p><img src="/2019/01/06/机器学习降维之线性判别模型-LDA/机器学习降维之线性判别模型LDA图片02.png" alt="机器学习降维之线性判别模型LDA图片02"></p>
+<p>某些数据情况下PCA比LDA方法降维更好</p>
+<p><img src="/2019/01/06/机器学习降维之线性判别模型-LDA/机器学习降维之线性判别模型LDA图片03.png" alt="机器学习降维之线性判别模型LDA图片03"></p>
+<h3 id="7-LDA算法总结"><a href="#7-LDA算法总结" class="headerlink" title="7.LDA算法总结"></a>7.LDA算法总结</h3><p><strong>LDA优点</strong></p>
+<ul>
+<li>在降维过程中可以使用类别的先验知识经验，而PCA这种无监督学习则无法使用类别先验知识。</li>
+</ul>
+<p><strong>LDA缺点</strong></p>
+<ul>
+<li><p>LDA可能过度拟合数据。</p>
+</li>
+<li><p>LDA不适合对非高斯分布样本进行降维，PCA也有这个问题。</p>
+</li>
+<li>LDA降维最多降到类别数k-1的维数，如果我们降维的维数大于k-1，则不能使用LDA。</li>
+</ul>
+<h3 id="8-推广"><a href="#8-推广" class="headerlink" title="8.推广"></a>8.推广</h3><p>更多内容请关注公众号<strong>谓之小一</strong>，若有疑问可在公众号后台提问，随时回答，欢迎关注，内容转载请注明出处。</p>
+<p><img src="/2019/01/06/机器学习降维之线性判别模型-LDA/推广.png" alt="推广"></p>
+
       
     </div>
 
@@ -809,7 +884,7 @@ R(A,B,x')=\frac{x^{'H}B^{-1/2}AB^{-1/2}x'}{x^{'H}x'}</script><p>利用前面的�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-LDA简介"><span class="nav-text">1.LDA简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-瑞利商和广义瑞利商"><span class="nav-text">2.瑞利商和广义瑞利商</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-二类LDA原理"><span class="nav-text">3.二类LDA原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-多类LDA原理"><span class="nav-text">4.多类LDA原理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-LDA简介"><span class="nav-text">1.LDA简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-瑞利商和广义瑞利商"><span class="nav-text">2.瑞利商和广义瑞利商</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-二类LDA原理"><span class="nav-text">3.二类LDA原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-多类LDA原理"><span class="nav-text">4.多类LDA原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-LDA算法流程"><span class="nav-text">5.LDA算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-LDA-vs-PCA"><span class="nav-text">6.LDA vs PCA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-LDA算法总结"><span class="nav-text">7.LDA算法总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-推广"><span class="nav-text">8.推广</span></a></li></ol></div>
             
 
           </div>
@@ -841,7 +916,7 @@ R(A,B,x')=\frac{x^{'H}B^{-1/2}AB^{-1/2}x'}{x^{'H}x'}</script><p>利用前面的�
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">292k</span>
+    <span title="站点总字数">296k</span>
   
 
   
