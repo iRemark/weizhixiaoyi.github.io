@@ -359,6 +359,218 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/08/14/基于google-protobuf的gRPC实现-python版/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谓之小一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/基于google-protobuf的gRPC实现-python版/" itemprop="url">
+                  基于google protobuf的gRPC实现(python版)
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-14 12:01:12" itemprop="dateCreated datePublished" datetime="2018-08-14T12:01:12+08:00">2018-08-14</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/protobuf/" itemprop="url" rel="index"><span itemprop="name">protobuf</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/14/基于google-protobuf的gRPC实现-python版/" class="leancloud_visitors" data-flag-title="基于google protobuf的gRPC实现(python版)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">9.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">16 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1.Protobuf简介Protobuf(Google Protocol Buffers)提供一种灵活、高效、自动化的机制，用于序列化结构数据。Protobuf仅需自定义一次所需要的数据格式，然后我们就可以使用Protobuf编译器自动生成各种语言的源码，方便我们读写自定义的格式化数据。另外Protobuf的使用与平台和语言无关，可以在不破坏原数据格式的基础上，扩展新的数据。
+我们可以将Protobuf与XML进行对比，但Protobuf更小、更快、更加简单。总结来说具有一下特点：
+
+性能好、效率高。Protobuf作用与XML、json类似，但它是二进制格式，所以性能更好。但同时因为是二进制格式，所以缺点也就是可读性差。
+代码生成机制，易于使用。
+解析速度快。
+支持多种语言，例C++、C#、Go、Java、Python等。
+向前兼容，向后兼容。
+
+2.Protobuf安装Mac用户可以使用brew进行安装，命令如下所示。
+
+brew install protobuf
+
+如需要安装特定版本，可以先进行搜索有哪些版本，命令如下所示。搜索完成之后，采用上述brew安装方法，安装特定版本即可
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/14/基于google-protobuf的gRPC实现-python版/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/08/14/Linux常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1792,218 +2004,11 @@ First, according the time series prediction model of the three indexes, the esti
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/06/12/效率软件推荐（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoYi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谓之小一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/12/效率软件推荐（一）/" itemprop="url">
-                  效率软件推荐（一）
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-12 20:39:52" itemprop="dateCreated datePublished" datetime="2018-06-12T20:39:52+08:00">2018-06-12</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/软件/" itemprop="url" rel="index"><span itemprop="name">软件</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/06/12/效率软件推荐（一）/" class="leancloud_visitors" data-flag-title="效率软件推荐（一）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3.3k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">6 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          工欲善其事，必先利其器，为此给大家推荐几款效率软件，帮助你高效学习和工作。
-
-滴答清单：解决拖延症&amp;&amp;健忘症，高效完成任务和规划时间。
-印象笔记： 收集各类信息，捕捉灵感，做你的第二大脑。
-夸克浏览器：极简风格，满足你对浏览器最本质的需求。
-
-1.滴答清单身边的人多多少都有点拖延症(包括我)，不到DeadLine的时候，都不会想到去解决问题。为此还耽误了几次事情，但被老师或同学批评几次之后，痛定思痛，决定认真改变拖延症的习惯。奈何自制力又不是太强，没监督或者提醒的话，不久之后又恢复到以前的状态。某天闲逛知乎中，发现滴答清单这款软件，真心不错，用一段时间之后，我多年的老(tuo)寒(yan)腿(zheng)也给治愈啦。另外，多逛知乎也是有用处的，硬是逛出来一篇中文核心论文《面向知乎的个性化推荐模型研究》，在知网现在也能检索到啦，大雾。
-解决拖延症，首要具备的便是任务提醒功能，滴答清单默认每天9点通知该天内所有事项。另外，如果为某件事情设置了具体时间，滴答将会在该时间点时进行提醒。对于未完成的任务，滴答清单图标右上角会时刻显示通知，督促自己完成。
-针对需要完成的每项任务，可
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/12/效率软件推荐（一）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2050,7 +2055,7 @@ First, according the time series prediction model of the three indexes, the esti
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2224,7 +2229,7 @@ First, according the time series prediction model of the three indexes, the esti
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">298k</span>
+    <span title="站点总字数">301k</span>
   
 
   
@@ -2861,9 +2866,9 @@ First, according the time series prediction model of the three indexes, the esti
   
     
       
-        
-      
     
+      
+        
       
     
       

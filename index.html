@@ -359,6 +359,220 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2019/01/31/详解准确率、精确率、召回率、F1值等评价指标的含义/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoYi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谓之小一">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/31/详解准确率、精确率、召回率、F1值等评价指标的含义/" itemprop="url">
+                  详解准确率、精确率、召回率、F1值等评价指标的含义
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-31 14:41:30" itemprop="dateCreated datePublished" datetime="2019-01-31T14:41:30+08:00">2019-01-31</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/31/详解准确率、精确率、召回率、F1值等评价指标的含义/" class="leancloud_visitors" data-flag-title="详解准确率、精确率、召回率、F1值等评价指标的含义">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          机器学习问题之中，通常需要建立模型来解决具体问题，但对于模型的好坏，也就是模型的泛化能力，如何进行评估呢？
+很简单，我们可以定一些评价指标，来度量模型的优劣。比如准确率、精确率、召回率、F1值、ROC、AUC等指标，但是你清楚这些指标的具体含义吗？下面我们一起来看看吧。
+1.混淆矩阵介绍各个指标之前，我们先来了解一下混淆矩阵。假如现在有一个二分类问题，那么预测结果和实际结果两两结合会出现如下四种情况。
+
+由于用数字1、0表示不太方便阅读，我们转换一下，用T(True)代表正确、F(False)代表错误、P(Positive)代表1、N(Negative)代表0。先看预测结果(P|N)，然后再针对实际结果对比预测结果，给出判断结果(T|F)。按照上面逻辑，重新分配后为
+
+TP、FP、FN、TN可以理解为
+
+TP：预测为1，实际为1，预测正确。
+FP：预测为1，实际为0，预测错误。
+FN：预测为0，实际为1，预测错误。
+TN：预测为0，实际为0，预测正确。
+
+2.准确率首先给出准确率(Accuracy)的定义，即预测正确的结果占总样本的百分比，表达式为
+
+准确率=\frac{TP+TN}{
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/31/详解准确率、精确率、召回率、F1值等评价指标的含义/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2019/01/30/机器学习之交叉验证详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1782,217 +1996,11 @@ A = W
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://weizhixiaoyi.com/2018/12/15/MCMC采样和M-H采样/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoYi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谓之小一">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/15/MCMC采样和M-H采样/" itemprop="url">
-                  MCMC采样和M-H采样
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-15 16:16:08" itemprop="dateCreated datePublished" datetime="2018-12-15T16:16:08+08:00">2018-12-15</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学统计学/" itemprop="url" rel="index"><span itemprop="name">数学统计学</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/12/15/MCMC采样和M-H采样/" class="leancloud_visitors" data-flag-title="MCMC采样和M-H采样">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.8k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">5 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          在MCMC之马尔可夫链之中我们介绍到，给定一个概率分布π，很难直接找到对应的马尔可夫链状态转移矩阵P。只要解决这个问题，我们便可以找到一种通用的概率分布采样方法，进而用于蒙特卡罗模拟。下面我们来介绍如何找到马尔可夫链所对应的状态转移矩阵P。
-1.马尔可夫链细致平稳条件解决平稳分布π所对应的马尔可夫链状态转移矩阵P之前，我们先看一下马尔可夫链的细致平稳条件。其定义为：如果非周期马尔可夫链的状态转移矩阵P和概率分布π(x)对于所有的i,j满足下列方程，则概率分布π(x)是状态转移矩阵P的平稳分布。
-
-\pi(i)P(i,j) = \pi(j)P(j,i)证明如下，由细致平稳条件有
-
-\sum _{i=1}^{\infty}\pi(i) P(i,j) = \sum _{i=1} ^{\infty} \pi(j) P(j,i) = \pi(j) \sum _{i=1} ^{\infty}P(j,i) = \pi(j)将上式用矩阵表示为
-
-\pi P = \pi上式满足马尔可夫链的收敛性质，也就是说，只要我们找到可以使概率分布π(x)满足细致平稳分布的矩阵P即可。不过仅仅从细致平稳条件还是很难找
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/15/MCMC采样和M-H采样/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2039,7 +2047,7 @@ A = W
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2213,7 +2221,7 @@ A = W
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">298k</span>
+    <span title="站点总字数">301k</span>
   
 
   
